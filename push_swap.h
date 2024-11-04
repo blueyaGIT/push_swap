@@ -6,12 +6,11 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:21:35 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/04 16:22:13 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/04 16:24:13 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 
 #endif /* PUSH_SWAP_H */
