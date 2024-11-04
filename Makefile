@@ -1,4 +1,4 @@
-NAME = push_swap.h
+NAME = libftpush_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
@@ -7,7 +7,7 @@ LIBFTPRINTF_DIR = ./printf
 LIBFTPRINTF = $(LIBFTPRINTF_DIR)/libftprintf.a
 
 # Source files
-SRCS = 	push_swap.c \
+SRCS = 	ft_push_swap.c
 		
 
 BSCRS = 
