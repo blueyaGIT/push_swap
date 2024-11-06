@@ -7,7 +7,9 @@ LIBFTPRINTF_DIR = ./printf
 LIBFTPRINTF = $(LIBFTPRINTF_DIR)/libftprintf.a
 
 # Source files
-SRCS = 	ft_push_swap.c
+SRCS = 	ft_push_swap.c \
+		stack.c \
+		stack2.c 
 		
 
 BSCRS = 
