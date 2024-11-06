@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/06 18:34:13 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/06 19:25:05 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 #include "printf/ft_printf.h"
 
 #include <stdio.h>
+
+// Reverse rotate both stacks `a` and `b`
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+}
 
 void	quicksort_stack(t_stack *a, t_stack *b, int start, int end)
 {
@@ -57,7 +64,7 @@ void	quicksort_stack(t_stack *a, t_stack *b, int start, int end)
 		pa(a, b);// Move sorted elements back to `a`
 	}
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;

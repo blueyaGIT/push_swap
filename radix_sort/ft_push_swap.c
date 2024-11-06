@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/06 18:55:47 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/06 19:25:12 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 #include "printf/ft_printf.h"
 
 #include <stdio.h>
+
+// Reverse rotate both stacks `a` and `b`
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+}
 
 // Helper to find the max number of bits required
 static int	max_bits(t_stack *a)

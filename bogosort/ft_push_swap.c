@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/06 19:02:25 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/06 19:24:44 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdbool.h>
+
+// Reverse rotate both stacks `a` and `b`
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+}
 
 // Check if stack `a` is sorted
 bool	is_sorted(t_stack *a)
