@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 11:22:10 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:22:10 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_stack(t_stack *stack, int size)
 	if (!stack->data)
 	{
 		ft_printf("Failed to allocate memory\n");
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	stack->top = -1;
 	stack->size = size;
