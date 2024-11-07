@@ -6,15 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 10:54:21 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:17:10 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 #include "printf/ft_printf.h"
-
-#include <stdio.h>
 
 void	init_stack(t_stack *stack, int size)
 {
@@ -52,7 +50,7 @@ int	main(int argc, char **argv)
 	init_stack(&a, argc - 1);
 	init_stack(&b, argc - 1);
 	while (++temp < argc)
-		a.data[++a.top] = atoi(argv[temp]);
+		a.data[++a.top] = ft_atoi(argv[temp]);
 	if (a.top + 1 == 2)
 		sort_two(&a);
 	else if (a.top + 1 == 3)

@@ -53,6 +53,9 @@ BSRCS = ft_lstnew_bonus.c \
 OBJS = $(SRCS:.c=.o)
 OBJS_B = $(BSRCS:.c=.o)
 
+# Default rule
+all: bonus
+
 # Rule to compile the main library
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
@@ -66,9 +69,6 @@ bonus: $(OBJS) $(OBJS_B)
 # Rule for compiling .c files into .o files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-# Default rule
-all: $(NAME)
 
 # Clean object files
 clean:
