@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 11:17:10 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:22:10 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ int	main(int argc, char **argv)
 
 	temp = -1;
 	if (argc < 2)
-		return (ft_printf("Usage: %s <numbers_to_sort>\n", argv[0]), 1);
+	{
+		ft_printf("Usage: %s <numbers_to_sort>\n", argv[0]);
+		return (1);
+	}
 	init_stack(&a, argc - 1);
 	init_stack(&b, argc - 1);
 	while (++temp < argc)
@@ -60,7 +63,5 @@ int	main(int argc, char **argv)
 	else
 		ft_printf("Sorting not implemented for this number of elements.\n");
 	too_long_func(a);
-	free(a.data);
-	free(b.data);
-	return (0);
+	return (free(a.data), free(b.data), 0);
 }
