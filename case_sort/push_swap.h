@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/06 19:14:16 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 10:43:50 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 // # include "libft/libft.h"
 // # include "printf/ft_printf.h"
-# include <stdbool.h>
-
-void	bogo_sort(t_stack *a, t_stack *b);
-void	random_shuffle(t_stack *a, t_stack *b);
-bool	is_sorted(t_stack *a);
 
 // Implementations of push_swap operations
 void	sa(t_stack *a);
@@ -33,6 +28,16 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
+// Sorting functions
+void	sort_two(t_stack *a);
+void	sort_three(t_stack *a);
+void	sort_five(t_stack *a, t_stack *b);
+
+// Helper functions
+int		find_min(t_stack *a);
+int		find_second_min(t_stack *a);
+void	init_stack(t_stack *stack, int size);
 
 typedef struct s_stack {
 	int	*data;
