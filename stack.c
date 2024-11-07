@@ -6,12 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:15:18 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/06 19:24:31 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:03:41 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
 
 // Swap the top two elements of stack `a`
 void	sa(t_stack *a)

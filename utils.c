@@ -6,11 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 10:44:40 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:03:49 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
 
 static void	too_long_func(t_stack *a)
 {

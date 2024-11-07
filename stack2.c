@@ -6,11 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:24:08 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/06 19:25:58 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:03:45 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
 
 // Rotate stack `a` upwards (first element becomes the last one)
 void	ra(t_stack *a)

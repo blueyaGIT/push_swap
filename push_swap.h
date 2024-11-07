@@ -6,15 +6,15 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 11:01:03 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:04:01 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// # include "libft/libft.h"
-// # include "printf/ft_printf.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 
 typedef struct s_stack {
 	int	*data;

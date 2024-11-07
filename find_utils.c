@@ -6,11 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:44:46 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 10:47:21 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:03:21 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
 
 // Find minimum element in stack `a`
 int	find_min(t_stack *a)
