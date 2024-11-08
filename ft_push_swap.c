@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 12:38:02 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/08 16:54:35 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_stack(t_stack *stack, int size)
 		ft_printf("Failed to allocate memory\n");
 		exit(1);
 	}
-	stack->top = -1;
+	stack->top = -2;
 	stack->size = size;
 }
 
@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 	init_stack(&b, argc - 1);
 	while (++temp < argc)
 		a.data[++a.top] = ft_atoi(argv[temp]);
+	ft_printf("stack size: %d\n______________\n", a.top);
 	if (a.top + 1 == 2)
 		sort_two(&a);
 	else if (a.top + 1 == 3)

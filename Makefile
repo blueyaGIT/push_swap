@@ -8,10 +8,10 @@ LIBFTPRINTF = $(LIBFTPRINTF_DIR)/libftprintf.a
 
 # Source files
 SRCS = 	ft_push_swap.c \
-		stack.c \
-		stack2.c \
-		utils.c \
-		find_utils.c
+        stack.c \
+        stack2.c \
+        utils.c \
+        find_utils.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
@@ -19,9 +19,15 @@ OBJS = $(SRCS:.c=.o)
 # Default rule to compile all
 all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
 
+# Rule to create the library
 $(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS) $(LIBFT) $(LIBFTPRINTF)
+	@ar rcs $(NAME) $(OBJS)
 	@echo "Library $(NAME) created."
+
+# Rule to compile the executable
+push_swap: $(OBJS) $(LIBFT) $(LIBFTPRINTF)
+	$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT) $(LIBFTPRINTF)
+	@echo "Executable push_swap created."
 
 # Rule to compile libft
 $(LIBFT):
@@ -38,20 +44,19 @@ $(LIBFTPRINTF): $(LIBFT)
 # Clean object files and libraries
 clean:
 	@rm -f $(OBJS)
-	@echo "Object files removed."
 	@cd $(LIBFT_DIR) && make clean
 	@cd $(LIBFTPRINTF_DIR) && make clean
-	@echo "Cleaned libft and libftprintf."
+	@echo "Object files removed."
 
-# Clean everything (object files and libraries)
+# Clean all generated files
 fclean: clean
-	@rm -f $(NAME)
-	@echo "Library $(NAME) removed."
+	@rm -f $(NAME) push_swap
 	@cd $(LIBFT_DIR) && make fclean
 	@cd $(LIBFTPRINTF_DIR) && make fclean
-	@echo "Cleaned libft and libftprintf completely."
+	@echo "All generated files removed."
 
 # Rebuild everything
 re: fclean all
 
-.PHONY: all clean fclean re
+# Phony targets
+.PHONY: all clean fclean re $(LIBFT) $(LIBFTPRINTF)
