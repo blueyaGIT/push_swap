@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/08 16:54:35 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/08 21:08:49 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void	too_long_func(t_stack a)
 	int	temp;
 
 	temp = a.top;
+	if (temp > 2)
+		temp++;
 	while (temp >= 0)
 	{
 		ft_printf("%d\n", a.data[temp]);
@@ -54,13 +56,12 @@ int	main(int argc, char **argv)
 	init_stack(&b, argc - 1);
 	while (++temp < argc)
 		a.data[++a.top] = ft_atoi(argv[temp]);
-	ft_printf("stack size: %d\n______________\n", a.top);
-	if (a.top + 1 == 2)
-		sort_two(&a);
+	if (a.top + 1 >= 5)
+		sort_five(&a, &b);
 	else if (a.top + 1 == 3)
 		sort_three(&a);
-	else if (a.top + 1 == 5)
-		sort_five(&a, &b);
+	else if (a.top + 1 == 2)
+		sort_two(&a);
 	else
 		ft_printf("Sorting not implemented for this number of elements.\n");
 	too_long_func(a);
