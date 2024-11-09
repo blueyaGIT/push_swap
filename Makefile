@@ -17,6 +17,11 @@ SRCS = 	ft_push_swap.c \
 # Object files
 OBJS = $(SRCS:.c=.o)
 
+# Rule to compile the executable
+push_swap: $(OBJS) $(LIBFT) $(LIBFTPRINTF)
+	$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT) $(LIBFTPRINTF)
+	@echo "Executable push_swap created."
+
 # Default rule to compile all
 all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
 
@@ -24,11 +29,6 @@ all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
 	@echo "Library $(NAME) created."
-
-# Rule to compile the executable
-push_swap: $(OBJS) $(LIBFT) $(LIBFTPRINTF)
-	$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT) $(LIBFTPRINTF)
-	@echo "Executable push_swap created."
 
 # Rule to compile libft
 $(LIBFT):

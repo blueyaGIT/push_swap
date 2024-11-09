@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_utils.c                                       :+:      :+:    :+:   */
+/*   utils_find.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:44:46 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/09 07:46:38 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/09 08:05:14 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,20 @@ int	find_cheapest_number(t_stack *a, t_stack *b)
 	int	min_ops;
 	int	min_index;
 	int	ops;
-	int	temp;
+	int	i;
 
 	min_ops = calculate_operations(a, b, 0);
 	min_index = 0;
-	temp = -1;
-	while (++temp <= a->top)
+	i = -1;
+	ft_printf("Index: 0, Ops: %d\n", min_ops);
+	while (++i <= a->top)
 	{
-		ops = calculate_operations(a, b, temp);
+		ops = calculate_operations(a, b, i);
+		ft_printf("Index: %d, Ops: %d\n", i, ops);
 		if (ops < min_ops)
 		{
 			min_ops = ops;
-			min_index = temp;
+			min_index = i;
 		}
 	}
 	return (min_index);

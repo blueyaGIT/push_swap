@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 07:47:03 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/09 07:48:50 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/09 08:03:02 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	push_cheapest_number(t_stack *a, t_stack *b)
 	int	pos_in_b;
 
 	index = find_cheapest_number(a, b);
+	ft_printf("Cheapest number index: %d\n", index);
 	pos_in_b = find_position_in_b(b, a->data[index]);
+	ft_printf("Position in b: %d\n", pos_in_b);
 	if (index <= a->top / 2)
 		while (index-- > 0)
 			ra(a);
