@@ -11,7 +11,8 @@ SRCS = 	ft_push_swap.c \
         stack.c \
         stack2.c \
         utils.c \
-        find_utils.c
+		utils_find.c \
+		utils_push.c 
 
 # Object files
 OBJS = $(SRCS:.c=.o)

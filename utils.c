@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/08 21:20:38 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/09 07:51:03 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,8 @@ void	rrr(t_stack *a, t_stack *b)
 
 void	mechanical_turk(t_stack *a, t_stack *b)
 {
-	//recode with new solution -> mechanical turk sort
+	pb(a, b);
+	pb(a, b);
+	while (a->top >= 0)
+		push_cheapest_number(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 11:15:56 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/09 07:49:50 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,15 @@ void	rrr(t_stack *a, t_stack *b);
 // Sorting functions
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
-void	sort_five(t_stack *a, t_stack *b);
+void	mechanical_turk(t_stack *a, t_stack *b);
 
 // Helper functions
 int		find_min(t_stack *a);
 int		find_second_min(t_stack *a);
 void	init_stack(t_stack *stack, int size);
+void	push_cheapest_number(t_stack *a, t_stack *b);
+int		find_position_in_b(t_stack *b, int num);
+int		calculate_operations(t_stack *a, t_stack *b, int index);
+int		find_cheapest_number(t_stack *a, t_stack *b);
 
 #endif /* PUSH_SWAP_H */
