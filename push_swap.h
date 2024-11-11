@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/09 07:49:50 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/11 12:43:03 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include "printf/ft_printf.h"
 # include <stdlib.h>
 
-typedef struct s_stack {
+typedef struct s_stack
+{
 	int	*data;
 	int	top;
 	int	size;
