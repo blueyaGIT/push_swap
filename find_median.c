@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:35:21 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/17 17:39:31 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/17 17:58:40 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	find_median_logic(t_stack *a, int *sorted)
 	int	j;
 	int	temp;
 
-	i = 0;
-	while (i++ <= a->top)
+	i = -1;
+	while (++i <= a->top)
 		sorted[i] = a->data[i];
 	i = 0;
 	while (i++ < a->top)
