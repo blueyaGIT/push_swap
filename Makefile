@@ -11,8 +11,8 @@ SRCS = 	ft_push_swap.c \
         stack.c \
         stack2.c \
         utils.c \
-		utils_find.c \
-		utils_push.c 
+		partition.c \
+		find_median.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

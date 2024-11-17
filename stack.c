@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:15:18 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 11:03:41 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/17 17:20:51 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,9 @@ void	pa(t_stack *a, t_stack *b)
 	}
 }
 
-// Push the top element from `a` to `b`
-void	pb(t_stack *a, t_stack *b)
+// Reverse rotate both stacks `a` and `b`
+void	rrr(t_stack *a, t_stack *b)
 {
-	if (a->top >= 0)
-	{
-		b->top++;
-		b->data[b->top] = a->data[a->top];
-		a->top--;
-	}
+	rra(a);
+	rrb(b);
 }

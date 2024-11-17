@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/09 07:54:38 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/17 17:52:07 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	t_stack	b;
 	int		temp;
 
-	temp = -1;
+	temp = 0;
 	if (argc < 2)
 	{
 		ft_printf("Usage: %s <numbers_to_sort>\n", argv[0]);
@@ -52,10 +52,10 @@ int	main(int argc, char **argv)
 	}
 	init_stack(&a, argc - 1);
 	init_stack(&b, argc - 1);
-	while (++temp < argc)
-		a.data[++a.top] = ft_atoi(argv[temp]);
+	while (temp < argc - 1)
+		a.data[++a.top] = ft_atoi(argv[temp + 1]);
 	if (a.top + 1 >= 5)
-		mechanical_turk(&a, &b);
+		mechanical_turk_sort(&a, &b);
 	else if (a.top + 1 == 3)
 		sort_three(&a);
 	else if (a.top + 1 == 2)

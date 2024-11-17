@@ -6,13 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:24:08 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/07 11:03:45 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/17 17:40:13 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "libft/libft.h"
 #include "printf/ft_printf.h"
+#include "push_swap.h"
 
 // Rotate stack `a` upwards (first element becomes the last one)
 void	ra(t_stack *a)
@@ -20,12 +20,15 @@ void	ra(t_stack *a)
 	int	temp;
 	int	i;
 
-	i = -1;
 	if (a->top > 0)
 	{
 		temp = a->data[a->top];
-		while (++i == a->top)
+		i = a->top;
+		while (i > 0)
+		{
 			a->data[i] = a->data[i - 1];
+			i--;
+		}
 		a->data[0] = temp;
 	}
 }
@@ -36,13 +39,14 @@ void	rb(t_stack *b)
 	int	temp;
 	int	i;
 
-	i = -1;
 	if (b->top > 0)
 	{
 		temp = b->data[b->top];
-		while (++i == b->top)
+		i = b->top;
+		while (i > 0)
 		{
 			b->data[i] = b->data[i - 1];
+			i--;
 		}
 		b->data[0] = temp;
 	}

@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/11 12:43:03 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/17 17:44:13 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
 void	ra(t_stack *a);
 void	rb(t_stack *b);
 void	rr(t_stack *a, t_stack *b);
@@ -38,17 +37,15 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
 // Sorting functions
+void	mechanical_turk_sort(t_stack *a, t_stack *b);
+void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b);
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
-void	mechanical_turk(t_stack *a, t_stack *b);
 
 // Helper functions
-int		find_min(t_stack *a);
-int		find_second_min(t_stack *a);
+void	partition(t_stack *a, t_stack *b, int median);
+int		find_median(t_stack *a);
 void	init_stack(t_stack *stack, int size);
-void	push_cheapest_number(t_stack *a, t_stack *b);
-int		find_position_in_b(t_stack *b, int num);
-int		calculate_operations(t_stack *a, t_stack *b, int index);
-int		find_cheapest_number(t_stack *a, t_stack *b);
+int		is_sorted(t_stack *a);
 
 #endif /* PUSH_SWAP_H */
