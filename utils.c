@@ -6,12 +6,10 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/17 17:44:34 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 11:43:15 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf/ft_printf.h"
 #include "push_swap.h"
 
 // Sorts stack `b` back into stack `a`
@@ -25,14 +23,13 @@ void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
 
 void	mechanical_turk_sort(t_stack *a, t_stack *b)
 {
-	int	median;
-
 	if (is_sorted(a))
+	{
+		mechanical_turk_sort_b_to_a(a, b);
 		return ;
-	median = find_median(a);
-	partition(a, b, median);
-	mechanical_turk_sort(a, b);
-	mechanical_turk_sort_b_to_a(a, b);
+	}
+	pb(a, b);
+	pb(a, b);
 }
 
 // Sorts a stack with two elements

@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 10:03:11 by dalbano           #+#    #+#             */
-/*   Updated: 2024/10/14 11:12:05 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 12:13:25 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <string.h>
 # include <stdlib.h>
 # include <fcntl.h>
+
+//extra lib inclutions
+# include "include/get_next_line/get_next_line.h"
+# include "include/printf/ft_printf.h"
+
 # define BUFF_SIZE 100
 
 int				ft_atoi(const char *str);

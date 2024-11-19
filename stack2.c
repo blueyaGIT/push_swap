@@ -6,12 +6,10 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:24:08 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/17 17:40:13 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 11:43:11 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf/ft_printf.h"
 #include "push_swap.h"
 
 // Rotate stack `a` upwards (first element becomes the last one)

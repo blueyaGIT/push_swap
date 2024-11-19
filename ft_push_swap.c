@@ -6,25 +6,11 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/17 17:55:35 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 11:42:40 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
-#include "printf/ft_printf.h"
-
-void	init_stack(t_stack *stack, int size)
-{
-	stack->data = malloc(size * sizeof(int));
-	if (!stack->data)
-	{
-		ft_printf("Failed to allocate memory\n");
-		exit(1);
-	}
-	stack->top = -1;
-	stack->size = size;
-}
 
 static void	too_long_func(t_stack a)
 {
@@ -50,8 +36,8 @@ int	main(int argc, char **argv)
 		ft_printf("Usage: %s <numbers_to_sort>\n", argv[0]);
 		return (1);
 	}
-	init_stack(&a, argc - 1);
-	init_stack(&b, argc - 1);
+	init_stack(&a, 100);
+	init_stack(&a, 100);
 	while (temp < argc - 1)
 		a.data[++a.top] = ft_atoi(argv[temp + 1]);
 	if (a.top + 1 >= 5)
