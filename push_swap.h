@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 11:43:01 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 12:42:21 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ void	sort_three(t_stack *a);
 void	partition(t_stack *a, t_stack *b, int median);
 int		is_sorted(t_stack *a);
 
-// stack a finder logic
-t_stack	*init_stack(t_stack	*stack, int size);
-void	push(t_stack *stack, int value);
-int		pop(t_stack *stack);
-int		findSmallest(t_stack *stack);
-int		findLargest(t_stack *stack);
+// stack a algorithm logic
 
 #endif /* PUSH_SWAP_H */

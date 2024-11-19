@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 11:43:15 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 12:41:55 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	sort_two(t_stack *a)
 		sa(a);
 }
 
+// Sorts a stack with three elements
 void	sort_three(t_stack *a)
 {
 	int	first;

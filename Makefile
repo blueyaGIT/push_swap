@@ -6,11 +6,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 # Source files
 SRCS = 	ft_push_swap.c \
-        stack.c \
-        stack2.c \
-        utils.c \
-		utils2.c \
-		partition.c \
+        stack_control.c  \
+		stack_control2.c \
+		stack_control3.c \
+		utils.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
