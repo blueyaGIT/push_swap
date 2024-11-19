@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 13:24:50 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 13:30:19 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
 {
 	while (b != NULL)
-	{
 		pa(a, b);
-	}
 }
 
 void	mechanical_turk_sort(t_stack *a, t_stack *b)
