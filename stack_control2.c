@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack2.c                                           :+:      :+:    :+:   */
+/*   stack_control2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:24:08 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 11:43:11 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 13:23:37 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,44 @@
 // Rotate stack `a` upwards (first element becomes the last one)
 void	ra(t_stack *a)
 {
-	int	temp;
-	int	i;
+	t_stack	*first;
+	t_stack	*temp;
 
-	if (a->top > 0)
+	if (a != NULL && a->next != NULL)
 	{
-		temp = a->data[a->top];
-		i = a->top;
-		while (i > 0)
+		first = a;
+		a = a->next;
+		a->prev = NULL;
+		temp = a;
+		while (temp->next != NULL)
 		{
-			a->data[i] = a->data[i - 1];
-			i--;
+			temp = temp->next;
 		}
-		a->data[0] = temp;
+		temp->next = first;
+		first->prev = temp;
+		first->next = NULL;
 	}
 }
 
 // Rotate stack `b` upwards (first element becomes the last one)
 void	rb(t_stack *b)
 {
-	int	temp;
-	int	i;
+	t_stack	*first;
+	t_stack	*temp;
 
-	if (b->top > 0)
+	if (b != NULL && b->next != NULL)
 	{
-		temp = b->data[b->top];
-		i = b->top;
-		while (i > 0)
+		first = b;
+		b = b->next;
+		b->prev = NULL;
+		temp = b;
+		while (temp->next != NULL)
 		{
-			b->data[i] = b->data[i - 1];
-			i--;
+			temp = temp->next;
 		}
-		b->data[0] = temp;
+		temp->next = first;
+		first->prev = temp;
+		first->next = NULL;
 	}
 }
 
@@ -60,33 +66,43 @@ void	rr(t_stack *a, t_stack *b)
 // Reverse rotate stack `a` (last element becomes the first one)
 void	rra(t_stack *a)
 {
-	int	temp;
-	int	i;
+	t_stack	*last;
+	t_stack	*second_last;
 
-	i = -1;
-	if (a->top > 0)
+	if (a != NULL && a->next != NULL)
 	{
-		temp = a->data[0];
-		while (++i < a->top)
+		last = a;
+		while (last->next != NULL)
 		{
-			a->data[i] = a->data[i + 1];
+			last = last->next;
 		}
-		a->data[a->top] = temp;
+		second_last = last->prev;
+		second_last->next = NULL;
+		last->prev = NULL;
+		last->next = a;
+		a->prev = last;
+		a = last;
 	}
 }
 
 // Reverse rotate stack `b` (last element becomes the first one)
 void	rrb(t_stack *b)
 {
-	int	temp;
-	int	i;
+	t_stack	*last;
+	t_stack	*second_last;
 
-	i = -1;
-	if (b->top > 0)
+	if (b != NULL && b->next != NULL)
 	{
-		temp = b->data[0];
-		while (++i < b->top)
-			b->data[i] = b->data[i + 1];
-		b->data[b->top] = temp;
+		last = b;
+		while (last->next != NULL)
+		{
+			last = last->next;
+		}
+		second_last = last->prev;
+		second_last->next = NULL;
+		last->prev = NULL;
+		last->next = b;
+		b->prev = last;
+		b = last;
 	}
 }

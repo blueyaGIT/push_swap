@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_control3.c                                   :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 14:22:37 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 13:23:23 by dalbano          ###   ########.fr       */
+/*   Created: 2024/11/19 13:14:25 by dalbano           #+#    #+#             */
+/*   Updated: 2024/11/19 13:17:10 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Reverse rotate both stacks `a` and `b`
-void	rrr(t_stack *a, t_stack *b)
+void	free_stacks(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
+	t_stack	*temp;
+
+	while (a != NULL)
+	{
+		temp = a;
+		a = a->next;
+		free(temp);
+	}
+	while (b != NULL)
+	{
+		temp = b;
+		b = b->next;
+		free(temp);
+	}
 }

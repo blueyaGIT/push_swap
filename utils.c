@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 12:41:55 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 13:24:50 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Sorts stack `b` back into stack `a`
 void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
 {
-	while (b->top >= 0)
+	while (b != NULL)
 	{
 		pa(a, b);
 	}
@@ -35,8 +35,9 @@ void	mechanical_turk_sort(t_stack *a, t_stack *b)
 // Sorts a stack with two elements
 void	sort_two(t_stack *a)
 {
-	if (a->data[a->top] > a->data[a->top - 1])
-		sa(a);
+	if (a != NULL && a->next != NULL)
+		if (a->nbr > a->next->nbr)
+			sa(a);
 }
 
 // Sorts a stack with three elements
@@ -46,9 +47,9 @@ void	sort_three(t_stack *a)
 	int	second;
 	int	third;
 
-	first = a->data[a->top];
-	second = a->data[a->top - 1];
-	third = a->data[a->top - 2];
+	first = a->nbr;
+	second = a->next->nbr;
+	third = a->next->next->nbr;
 	if (first > second && second < third && first < third)
 		sa(a);
 	else if (first > second && second > third)
@@ -70,16 +71,13 @@ void	sort_three(t_stack *a)
 // Checks if the stack `a` is sorted in ascending order
 int	is_sorted(t_stack *a)
 {
-	int	i;
-
-	if (a->top < 0)
+	if (a == NULL)
 		return (1);
-	i = a->top;
-	while (i > 0)
+	while (a->next != NULL)
 	{
-		if (a->data[i] > a->data[i - 1])
+		if (a->nbr > a->next->nbr)
 			return (0);
-		i--;
+		a = a->next;
 	}
 	return (1);
 }

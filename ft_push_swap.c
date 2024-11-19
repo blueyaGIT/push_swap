@@ -6,23 +6,11 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 11:42:40 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/19 13:18:52 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	too_long_func(t_stack a)
-{
-	int	temp;
-
-	temp = a.top;
-	while (temp >= 0)
-	{
-		ft_printf("%d\n", a.data[temp]);
-		temp--;
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -36,18 +24,18 @@ int	main(int argc, char **argv)
 		ft_printf("Usage: %s <numbers_to_sort>\n", argv[0]);
 		return (1);
 	}
-	init_stack(&a, 100);
-	init_stack(&a, 100);
-	while (temp < argc - 1)
-		a.data[++a.top] = ft_atoi(argv[temp + 1]);
-	if (a.top + 1 >= 5)
+	init_stack(&a);
+	init_stack(&b);
+	while (++temp < argc)
+		push(&a, ft_atoi(argv[temp]));
+	if (temp - 1 > 3)
 		mechanical_turk_sort(&a, &b);
-	else if (a.top + 1 == 3)
+	else if (temp - 1 == 3)
 		sort_three(&a);
-	else if (a.top + 1 == 2)
+	else if (temp - 1 == 2)
 		sort_two(&a);
 	else
 		ft_printf("Sorting not implemented for this number of elements.\n");
-	too_long_func(a);
-	return (free(a.data), free(b.data), 0);
+	free_stacks(&a, &b);
+	return (0);
 }

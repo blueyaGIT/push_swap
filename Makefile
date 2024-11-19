@@ -9,7 +9,10 @@ SRCS = 	ft_push_swap.c \
         stack_control.c  \
 		stack_control2.c \
 		stack_control3.c \
-		utils.c
+		utils.c \
+		utils2.c \
+		algorithm.c \
+		algorithm_utils.c 
 
 # Object files
 OBJS = $(SRCS:.c=.o)
