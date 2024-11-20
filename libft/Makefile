@@ -6,6 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS_DIR = ./srcs
 INC_DIR = ./include
 PRINTF_DIR = $(INC_DIR)/printf
+GNL_DIR = $(INC_DIR)/get_next_line
 
 # List of source files (all in the parent directory 't1')
 SRCS =	$(SRCS_DIR)/ft_atoi.c \
@@ -57,7 +58,11 @@ SRCS =	$(SRCS_DIR)/ft_atoi.c \
 		$(PRINTF_DIR)/ft_print_str.c \
 		$(PRINTF_DIR)/ft_print_unbr.c \
 		$(PRINTF_DIR)/ft_print_voidptr.c \
-		$(PRINTF_DIR)/ft_printf.c
+		$(PRINTF_DIR)/ft_printf.c \
+		$(GNL_DIR)/get_next_line.c \
+		$(GNL_DIR)/get_next_line_bonus.c \
+		$(GNL_DIR)/get_next_line_utils.c \
+		$(GNL_DIR)/get_next_line_utils_bonus.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
