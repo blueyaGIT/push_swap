@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/20 15:17:07 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/22 17:54:02 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	init_stack(&a);
 	init_stack(&b);
 	while (++temp < argc)
-		push(&a, ft_atoi(argv[temp]));
+		ft_push(&a, ft_atoi(argv[temp]), temp - 1);
 	if (temp - 1 > 3)
 		mechanical_turk_sort(&a, &b);
 	else if (temp - 1 == 3)

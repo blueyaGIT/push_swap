@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:14:25 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/20 15:16:17 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/22 17:53:58 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_stacks(t_stack *a, t_stack *b)
 	}
 }
 
-void	push(t_stack *stack, long value)
+void	ft_push(t_stack **stack, long value, int index)
 {
 	t_stack	*new_node;
 
@@ -41,17 +41,15 @@ void	push(t_stack *stack, long value)
 		return ;
 	}
 	new_node->nbr = value;
-	new_node->next = stack;
+	new_node->index = index;
+	new_node->next = *stack;
 	new_node->prev = NULL;
-	if (stack != NULL)
-		stack->prev = new_node;
-	stack = new_node;
+	if (*stack != NULL)
+		(*stack)->prev = new_node;
+	*stack = new_node;
 }
 
-void	init_stack(t_stack *stack)
+void	init_stack(t_stack **stack)
 {
-	stack->nbr = 0;
-	stack->index = -1;
-	stack->next = NULL;
-	stack->prev = NULL;
+	*stack = NULL;
 }

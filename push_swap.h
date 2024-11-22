@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 13:39:49 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/22 17:55:48 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void				sort_three(t_stack *a);
 // Helper functions
 int					is_sorted(t_stack *a);
 void				free_stacks(t_stack *a, t_stack *b);
-void				init_stack(t_stack *stack);
-void				push(t_stack *stack, long value);
+void				init_stack(t_stack **stack);
+void				ft_push(t_stack **stack, long value, int index);
 // Algorithm functions
 long				find_best_move(t_stack *stack_a, t_stack *stack_b);
 int					calculate_steps(t_stack *stack_a, t_stack *stack_b,
