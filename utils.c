@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 13:30:19 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/23 17:26:26 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,29 @@ void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
 
 void	mechanical_turk_sort(t_stack *a, t_stack *b)
 {
-	if (is_sorted(a))
+	int	temp;
+	int	ra_steps = 0;
+	int	rb_steps = 0;
+
+	temp = 0;
+	printf("BESTNUM: %ld\n", find_best_move(a, b));
+	// ra_steps = calculate_ra_steps(a, find_best_move(a, b));
+	// rb_steps = calculate_rb_steps(b, find_target_position(b, a->nbr));
+	// printf("ra_steps:%d\nrb_steps:%d\n", ra_steps, rb_steps);
+	while (!is_sorted(a))
 	{
-		mechanical_turk_sort_b_to_a(a, b);
-		return ;
+		printf("SORT TEST\n");
+		pb(a, b);
+		pb(a, b);
+		while (temp++ < ra_steps)
+			ra(a);
+		printf("T1\n");
+		while (temp++ < rb_steps)
+			rb(b);
+		pb(a, b);
 	}
-	pb(a, b);
-	pb(a, b);
+	mechanical_turk_sort_b_to_a(a, b);
+	return ;
 }
 
 // Sorts a stack with two elements

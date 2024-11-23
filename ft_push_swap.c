@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/22 19:50:04 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/23 17:21:48 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	main(int argc, char **argv)
 		sort_two(a);
 	else
 		ft_printf("Sorting not implemented for this number of elements.\n");
-	//either doesn't sort or doesn't properly return sorted stack
 	print_stack(a);
 	free_stacks(a, b);
 	return (0);
