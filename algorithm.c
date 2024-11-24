@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:44:35 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/24 12:05:11 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 18:17:55 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	calculate_steps(t_stack *stack_a, t_stack *stack_b, int num)
 	return (min(ra_steps, rb_steps, rra_steps, rrb_steps));
 }
 
+//big oof
 long	find_best_move(t_stack *stack_a, t_stack *stack_b)
 {
 	int		best_steps;
