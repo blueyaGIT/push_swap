@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/23 21:55:43 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 12:04:11 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_stack(t_stack *stack)
 	t_stack	*current;
 
 	current = stack;
-	while (current != NULL)
+	while (current)
 	{
 		ft_printf("Number: %d, Index: %d\n", current->nbr, current->index);
 		current = current->next;

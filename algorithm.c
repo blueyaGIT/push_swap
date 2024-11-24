@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:44:35 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/23 18:09:23 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 11:45:43 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static int	min(int ra_steps, int rb_steps, int rra_steps, int rrb_steps)
 
 	total_steps = ra_steps + rb_steps;
 	if (rra_steps + rrb_steps < total_steps)
-	{
 		total_steps = rra_steps + rrb_steps;
-	}
 	return (total_steps);
 }
 
@@ -54,12 +52,14 @@ long	find_best_move(t_stack *stack_a, t_stack *stack_b)
 	{
 		printf("T1\n");
 		num = current_a->nbr;
+		printf("CURRENT_A->NBR: %ld\n", num);
 		if (calculate_steps(stack_a, stack_b, num) < best_steps)
 		{
 			best_steps = calculate_steps(stack_a, stack_b, num);
+			printf("BEST_STEPS: %d\n", best_steps);
 			best_num = num;
 		}
-		current_a = stack_a->next;
+		current_a = current_a->next;
 	}
 	return (best_num);
 }

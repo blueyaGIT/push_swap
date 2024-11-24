@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/23 17:26:26 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 12:02:59 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,28 @@
 void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
 {
 	while (b != NULL)
-		pa(a, b);
+		pa(&a, &b);
 }
 
 void	mechanical_turk_sort(t_stack *a, t_stack *b)
 {
-	int	temp;
-	int	ra_steps = 0;
-	int	rb_steps = 0;
+	int		temp;
+	int		ra_steps;
+	int		rb_steps;
+	long	best;
 
-	temp = 0;
-	printf("BESTNUM: %ld\n", find_best_move(a, b));
-	// ra_steps = calculate_ra_steps(a, find_best_move(a, b));
-	// rb_steps = calculate_rb_steps(b, find_target_position(b, a->nbr));
-	// printf("ra_steps:%d\nrb_steps:%d\n", ra_steps, rb_steps);
-	while (!is_sorted(a))
+	while (is_sorted(a) != 1)
 	{
-		printf("SORT TEST\n");
-		pb(a, b);
-		pb(a, b);
+		best = find_best_move(a, b);
+		ra_steps = calculate_ra_steps(a, best);
+		rb_steps = calculate_rb_steps(b, find_target_position(b, a->nbr));
+		temp = 0;
 		while (temp++ < ra_steps)
-			ra(a);
-		printf("T1\n");
+			ra(&a);
+		temp = 0;
 		while (temp++ < rb_steps)
-			rb(b);
-		pb(a, b);
+			rb(&b);
+		pb(&a, &b);
 	}
 	mechanical_turk_sort_b_to_a(a, b);
 	return ;
@@ -51,7 +48,7 @@ void	sort_two(t_stack *a)
 {
 	if (a != NULL && a->next != NULL)
 		if (a->nbr > a->next->nbr)
-			sa(a);
+			sa(&a);
 }
 
 // Sorts a stack with three elements
@@ -65,21 +62,21 @@ void	sort_three(t_stack *a)
 	second = a->next->nbr;
 	third = a->next->next->nbr;
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(&a);
 	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		sa(&a);
+		rra(&a);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(&a);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(&a);
+		ra(&a);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(&a);
 }
 
 // Checks if the stack `a` is sorted in ascending order

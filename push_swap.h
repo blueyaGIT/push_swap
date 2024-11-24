@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/22 17:55:48 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 11:58:43 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,20 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
+void				print_stack(t_stack *stack);
+
 // Implementations of stack operations
-void				sa(t_stack *a);
-void				sb(t_stack *b);
-void				ss(t_stack *a, t_stack *b);
-void				pa(t_stack *a, t_stack *b);
-void				pb(t_stack *a, t_stack *b);
-void				ra(t_stack *a);
-void				rb(t_stack *b);
-void				rr(t_stack *a, t_stack *b);
-void				rra(t_stack *a);
-void				rrb(t_stack *b);
-void				rrr(t_stack *a, t_stack *b);
+void				sa(t_stack **a);
+void				sb(t_stack **b);
+void				ss(t_stack **a, t_stack **b);
+void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **a, t_stack **b);
+void				ra(t_stack **a);
+void				rb(t_stack **b);
+void				rr(t_stack **a, t_stack **b);
+void				rra(t_stack **a);
+void				rrb(t_stack **b);
+void				rrr(t_stack **a, t_stack **b);
 
 // Sorting functions
 void				mechanical_turk_sort(t_stack *a, t_stack *b);

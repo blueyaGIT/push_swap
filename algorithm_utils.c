@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:48:32 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/19 13:07:50 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 11:39:15 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	calculate_ra_steps(t_stack *stack_a, long num)
 	while (current != NULL)
 	{
 		if (current->nbr == num)
-			break ;
+			return (printf("Steps: %d\n", steps), steps);
 		current = current->next;
 		steps++;
 	}
-	return (steps);
+	return (-1);
 }
 
 int	calculate_rra_steps(t_stack *stack_a, long num)
