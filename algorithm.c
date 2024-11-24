@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:44:35 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/24 11:45:43 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 12:05:11 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,10 @@ long	find_best_move(t_stack *stack_a, t_stack *stack_b)
 	current_a = stack_a;
 	while (current_a != NULL)
 	{
-		printf("T1\n");
 		num = current_a->nbr;
-		printf("CURRENT_A->NBR: %ld\n", num);
 		if (calculate_steps(stack_a, stack_b, num) < best_steps)
 		{
 			best_steps = calculate_steps(stack_a, stack_b, num);
-			printf("BEST_STEPS: %d\n", best_steps);
 			best_num = num;
 		}
 		current_a = current_a->next;
