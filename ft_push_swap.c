@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/24 12:04:11 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/24 12:09:46 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 	init_stack(&b);
 	while (++temp < argc)
 		ft_push(&a, ft_atoi(argv[temp]), temp - 1);
+	printf("Pre-Sort\n");
+	print_stack(a);
 	if (temp - 1 > 3)
 		mechanical_turk_sort(a, b);
 	else if (temp - 1 == 3)
@@ -45,6 +47,7 @@ int	main(int argc, char **argv)
 		sort_two(a);
 	else
 		ft_printf("Sorting not implemented for this number of elements.\n");
+	printf("\nPost-Sort\n");
 	print_stack(a);
 	free_stacks(a, b);
 	return (0);
