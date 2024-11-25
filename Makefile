@@ -13,16 +13,19 @@ CYAN = \033[36m
 NC = \033[0m
 
 # Source files
-SRCS = 	$(SRCS_DIR)/push_swap.c \
-        $(SRCS_DIR)/stack_control.c  \
-		$(SRCS_DIR)/stack_control2.c \
-		$(SRCS_DIR)/stack_control3.c \
-		$(SRCS_DIR)/stack_control_utils.c \
-		$(SRCS_DIR)/utils.c \
-		$(SRCS_DIR)/utils2.c \
-		$(SRCS_DIR)/algorithm.c \
-		$(SRCS_DIR)/algorithm_utils.c \
-		$(SRCS_DIR)/algorithm_utils2.c
+SRCS_FILES = 	push_swap.c \
+        		stack_control.c  \
+				stack_control2.c \
+				stack_control3.c \
+				stack_control_utils.c \
+				utils.c \
+				utils2.c \
+				algorithm.c \
+				algorithm_utils.c \
+				algorithm_utils2.c
+
+# Combine SRCS_DIR and the source filenames
+SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
 # Object files
 OBJS = $(SRCS:.c=.o)
