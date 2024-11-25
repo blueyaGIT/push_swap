@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+//thid func is wrong
 static int	min(int ra_steps, int rb_steps, int rra_steps, int rrb_steps)
 {
 	int	total_steps;
