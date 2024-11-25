@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/24 12:09:46 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 16:40:41 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	print_stack(t_stack *a, t_stack *b)
 {
-	t_stack	*current;
+	t_stack	*current_a;
+	t_stack	*current_b;
 
-	current = stack;
-	while (current)
+	current_a = a;
+	current_b = b;
+	while (current_a || current_b)
 	{
-		ft_printf("Number: %d, Index: %d\n", current->nbr, current->index);
-		current = current->next;
+		if (current_a)
+		{
+			ft_printf("%d", current_a->nbr);
+			current_a = current_a->next;
+		}
+		else
+			ft_printf("*");
+		ft_printf("       ");
+		if (current_b)
+		{
+			ft_printf("%d", current_b->nbr);
+			current_b = current_b->next;
+		}
+		else
+			ft_printf("*");
+		printf("\n");
 	}
+	ft_printf("-       -\na       b\n\n");
 }
 
 int	main(int argc, char **argv)
@@ -38,7 +55,7 @@ int	main(int argc, char **argv)
 	while (++temp < argc)
 		ft_push(&a, ft_atoi(argv[temp]), temp - 1);
 	printf("Pre-Sort\n");
-	print_stack(a);
+	print_stack(a, b);
 	if (temp - 1 > 3)
 		mechanical_turk_sort(a, b);
 	else if (temp - 1 == 3)
@@ -48,7 +65,7 @@ int	main(int argc, char **argv)
 	else
 		ft_printf("Sorting not implemented for this number of elements.\n");
 	printf("\nPost-Sort\n");
-	print_stack(a);
+	print_stack(a, b);
 	free_stacks(a, b);
 	return (0);
 }
