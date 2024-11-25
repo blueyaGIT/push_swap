@@ -64,7 +64,7 @@ fclean: clean
 	@sleep 0.3
 	@echo "$(CYAN)🧽 Polishing Project 🧽$(NC)"
 	@sleep 0.3
-	@echo "$(GREEN)🧴 Tidying Up 🧴$(NC)"
+	@echo "$(MAGENTA)🧴 Tidying Up 🧴$(NC)"
 	@sleep 0.3
 	@echo "$(GREEN)✅ Cleaning Done ✅$(NC)"
 	@rm -f $(NAME) push_swap
