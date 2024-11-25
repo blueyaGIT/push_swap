@@ -6,11 +6,11 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:20:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 15:44:25 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	calculate_steps_b(t_stack *b, int num)
 {

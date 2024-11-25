@@ -6,11 +6,11 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:24:08 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 14:41:52 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // Rotate stack `a` upwards
 void	ra(t_stack **a)

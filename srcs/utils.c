@@ -6,11 +6,11 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 15:40:37 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // Sorts stack `b` back into stack `a`
 void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
