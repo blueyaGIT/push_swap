@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 15:17:58 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:44:33 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ typedef struct s_stack
 	struct s_stack		*prev;
 }						t_stack;
 
-enum					e_stack_definer
+typedef enum s_stack_definer
 {
-	g_up,
-	g_down,
-	g_a,
-	g_b
-};
+	up,
+	down,
+	e_a,
+	e_b
+}	t_stack_definer;
 
 void					print_stack(t_stack *stack);
 
@@ -68,7 +68,7 @@ void					free_stacks(t_stack *a, t_stack *b);
 void					init_stack(t_stack **stack);
 void					ft_push(t_stack **stack, long value, int index);
 void					rotate_stack(t_stack *stack, int steps, long best,
-							enum e_stack_definer which);
+							t_stack_definer which);
 
 // Algorithm functions
 
@@ -82,6 +82,6 @@ int						calculate_steps_b(t_stack *b, int num);
 int						calculate_rx_steps(t_stack *stack, long num);
 int						calculate_rrx_steps(t_stack *stack, long num);
 int						min_steps(int rx_steps, int rrx_steps);
-enum e_stack_definer	direction_x(int rx_steps, int rrx_steps);
+t_stack_definer			direction_x(int rx_steps, int rrx_steps);
 
 #endif /* PUSH_SWAP_H */

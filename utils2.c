@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:14:25 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 15:17:41 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:44:17 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,26 @@ void	init_stack(t_stack **stack)
 }
 
 void	rotate_stack(t_stack *stack, int steps, long best,
-		enum e_stack_definer which)
+		t_stack_definer which)
 {
-	enum e_stack_definer	direction;
-	int						temp;
+	t_stack_definer	direction;
+	int				temp;
 
 	temp = 0;
 	direction = direction_x(calculate_rx_steps(stack, best),
 			calculate_rrx_steps(stack, best));
-	if (which == g_a)
+	if (which == e_a)
 	{
-		while (direction == g_up && temp++ < steps)
+		while (direction == up && temp++ < steps)
 			ra(&stack);
-		while (direction == g_down && temp++ < steps)
+		while (direction == down && temp++ < steps)
 			rra(&stack);
 	}
-	else if (which == g_b)
+	else if (which == e_b)
 	{
-		while (direction == g_up && temp++ < steps)
+		while (direction == up && temp++ < steps)
 			rb(&stack);
-		while (direction == g_down && temp++ < steps)
+		while (direction == down && temp++ < steps)
 			rrb(&stack);
 	}
 	else

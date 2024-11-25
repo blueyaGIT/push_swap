@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 15:14:49 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:40:37 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	mechanical_turk_sort(t_stack *a, t_stack *b)
 		best = find_best_move(a, b);
 		a_steps = calculate_steps_a(a, best);
 		b_steps = calculate_steps_b(b, find_target_position(b, a->nbr));
-		rotate_stack(a, a_steps, best, g_a);
-		rotate_stack(b, b_steps, best, g_b);
+		rotate_stack(a, a_steps, best, e_a);
+		rotate_stack(b, b_steps, best, e_b);
 	}
 	mechanical_turk_sort_b_to_a(a, b);
 	return ;

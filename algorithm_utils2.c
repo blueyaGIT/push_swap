@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:20:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 15:18:43 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:44:25 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int	calculate_steps_a(t_stack *a, int num)
 	return (total_steps_a);
 }
 
-enum e_stack_definer	direction_x(int rx_steps, int rrx_steps)
+t_stack_definer	direction_x(int rx_steps, int rrx_steps)
 {
 	if (rx_steps == rrx_steps)
-		return (g_up);
+		return (up);
 	else if (rx_steps < rrx_steps)
-		return (g_up);
+		return (up);
 	else if (rx_steps > rrx_steps)
-		return (g_down);
+		return (down);
 	else
 		exit(EXIT_FAILURE);
 }
