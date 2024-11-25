@@ -6,20 +6,20 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:14:25 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/24 11:54:19 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:17:41 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stacks(t_stack *a, t_stack *b)
+void	free_stacks(t_stack *stack, t_stack *b)
 {
 	t_stack	*temp;
 
-	while (a != NULL)
+	while (stack != NULL)
 	{
-		temp = a;
-		a = a->next;
+		temp = stack;
+		stack = stack->next;
 		free(temp);
 	}
 	while (b != NULL)
@@ -52,4 +52,31 @@ void	ft_push(t_stack **stack, long value, int index)
 void	init_stack(t_stack **stack)
 {
 	*stack = NULL;
+}
+
+void	rotate_stack(t_stack *stack, int steps, long best,
+		enum e_stack_definer which)
+{
+	enum e_stack_definer	direction;
+	int						temp;
+
+	temp = 0;
+	direction = direction_x(calculate_rx_steps(stack, best),
+			calculate_rrx_steps(stack, best));
+	if (which == g_a)
+	{
+		while (direction == g_up && temp++ < steps)
+			ra(&stack);
+		while (direction == g_down && temp++ < steps)
+			rra(&stack);
+	}
+	else if (which == g_b)
+	{
+		while (direction == g_up && temp++ < steps)
+			rb(&stack);
+		while (direction == g_down && temp++ < steps)
+			rrb(&stack);
+	}
+	else
+		exit(EXIT_FAILURE);
 }

@@ -5,14 +5,16 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Source files
-SRCS = 	ft_push_swap.c \
+SRCS = 	push_swap.c \
         stack_control.c  \
 		stack_control2.c \
 		stack_control3.c \
+		stack_control_utils.c \
 		utils.c \
 		utils2.c \
 		algorithm.c \
-		algorithm_utils.c 
+		algorithm_utils.c \
+		algorithm_utils2.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

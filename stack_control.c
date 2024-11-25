@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:15:18 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/24 13:21:44 by dalbano          ###   ########.fr       */
+/*   Updated: 2024/11/25 14:39:46 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,15 @@
 // Swap the top two elements of stack `a`
 void	sa(t_stack **a)
 {
-	t_stack	*first;
-	t_stack	*second;
-
-	if (*a && (*a)->next)
-	{
-		first = *a;
-		second = (*a)->next;
-		first->next = second->next;
-		if (second->next)
-			second->next->prev = first;
-		second->prev = NULL;
-		second->next = first;
-		first->prev = second;
-		*a = second;
-	}
+	ft_printf("sa\n");
+	sx(a);
 }
 
 // Swap the top two elements of stack `b`
 void	sb(t_stack **b)
 {
-	sa(b);
+	ft_printf("sb\n");
+	sx(b);
 }
 
 // Swap the top two elements of both stacks `a` and `b`
@@ -48,24 +36,13 @@ void	ss(t_stack **a, t_stack **b)
 // Push the top element from stack `b` to stack `a`
 void	pa(t_stack **a, t_stack **b)
 {
-	t_stack	*top_b;
-
-	if (*b)
-	{
-		top_b = *b;
-		*b = (*b)->next;
-		if (*b)
-			(*b)->prev = NULL;
-		top_b->next = *a;
-		if (*a)
-			(*a)->prev = top_b;
-		*a = top_b;
-		top_b->prev = NULL;
-	}
+	ft_printf("pa\n");
+	px(a, b);
 }
 
 // Push the top element from stack `a` to stack `b`
 void	pb(t_stack **a, t_stack **b)
 {
-	pa(b, a);
+	ft_printf("pb\n");
+	px(b, a);
 }
