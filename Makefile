@@ -11,6 +11,7 @@ BLUE = \033[34m
 MAGENTA = \033[35m
 CYAN = \033[36m
 NC = \033[0m
+CLEAR_LINE = \033[2K\r
 
 # Source files
 SRCS_FILES = 	push_swap.c \
@@ -27,13 +28,16 @@ SRCS_FILES = 	push_swap.c \
 # Combine SRCS_DIR and the source filenames
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
+TOTAL_SRCS = $(words $(SRCS))
+CURRENT = 0
+
 # Object files
 OBJS = $(SRCS:.c=.o)
 
 # Rule to compile the executable
 push_swap: $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT)
-	@echo "$(GREEN)✅ Done Compiling ✅$(NC)"
+	@echo "\n$(GREEN)✅ Done Compiling ✅$(NC)"
 
 # Default rule to compile all
 all: $(LIBFT) $(NAME)
@@ -49,6 +53,9 @@ $(LIBFT):
 
 # Object file compilation rule
 .c.o:
+	@$(eval CURRENT := $(shell echo $$(($(CURRENT) + 1))))
+	@$(eval PERCENT := $(shell echo $$(($(CURRENT) * 100 / $(TOTAL_SRCS)))))
+	@printf "$(CLEAR_LINE)$(YELLOW)Compiling $(PERCENT)%% [$(CURRENT)/$(TOTAL_SRCS)] $(CYAN)$<$(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 # Clean object files and libraries
