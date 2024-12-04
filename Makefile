@@ -34,21 +34,18 @@ CURRENT = 0
 # Object files
 OBJS = $(SRCS:.c=.o)
 
-# Rule to compile the executable
-push_swap: $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT)
-	@echo "\n$(GREEN)✅ Done Compiling ✅$(NC)"
-
 # Default rule to compile all
 all: $(LIBFT) $(NAME)
 
 # Rule to create the library
 $(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT)
+	@echo "\n$(GREEN)✅ Done Compiling ✅$(NC)"
 
 # Rule to compile libft
 $(LIBFT):
 	@echo "$(YELLOW)🚧 Compiling 🚧$(NC)"
+	@sleep 0.3
 	@$(MAKE) -C $(LIBFT_DIR)
 
 # Object file compilation rule
@@ -65,15 +62,17 @@ clean:
 
 # Clean all generated files
 fclean: clean
-	@echo "$(RED)🧹 Cleaning in Progress 🧹$(NC)"
+	@echo "$(YELLOW)🚧 Cleaning 🚧$(NC)"
 	@sleep 0.3
-	@echo "$(YELLOW)🛁 Scrubbing Code 🛁$(NC)"
+	@printf "$(CLEAR_LINE)$(RED)🧹 Cleaning in Progress 🧹$(NC)"
 	@sleep 0.3
-	@echo "$(CYAN)🧽 Polishing Project 🧽$(NC)"
+	@printf "$(CLEAR_LINE)$(YELLOW)🛁 Scrubbing Code 🛁$(NC)"
 	@sleep 0.3
-	@echo "$(MAGENTA)🧴 Tidying Up 🧴$(NC)"
+	@printf "$(CLEAR_LINE)$(CYAN)🧽 Polishing Project 🧽$(NC)"
 	@sleep 0.3
-	@echo "$(GREEN)✅ Cleaning Done ✅$(NC)"
+	@printf "$(CLEAR_LINE)$(MAGENTA)🧴 Tidying Up 🧴$(NC)"
+	@sleep 0.3
+	@printf "$(CLEAR_LINE)$(GREEN)✅ Done Cleaning ✅$(NC)\n"
 	@rm -f $(NAME) push_swap
 	@cd $(LIBFT_DIR) && make fclean
 
