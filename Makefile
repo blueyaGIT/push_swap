@@ -25,7 +25,16 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS = main.c
+SRCS = 	main.c \
+		stack_control.c  \
+		stack_control2.c \
+		stack_control3.c \
+		stack_control_utils.c \
+		utils.c \
+		utils2.c \
+		algorithm.c \
+		algorithm_utils.c \
+		algorithm_utils2.c
 
 # Object files
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
@@ -67,7 +76,6 @@ remove-submodules: remove-libft
 # Remove libft
 remove-libft:
 	@if [ -d "$(LIBFT_DIR)" ]; then \
-		echo "$(YELLOW)❌ Removing LIBFT submodule ❌$(NC)"; \
 		git submodule deinit -q -f $(LIBFT_DIR) > /dev/null 2>&1; \
 		git rm -q -f $(LIBFT_DIR) > /dev/null 2>&1; \
 		rm -rf .git/modules/$(LIBFT_DIR) > /dev/null 2>&1; \
@@ -86,15 +94,8 @@ $(NAME): init-submodules $(LIBFT_LIB) $(OBJS)
 	@$(CC) -o $(NAME) $(OBJS) $(LIBFTFLAGS)
 	@echo "$(CLEAR_LINE)$(GREEN)✅ Done Compiling ✅$(NC)"
 
-# Rule to check for changes and reclone if necessary
-fix:
-    @if [ -n "$$(git -C . status --porcelain)" ]; then \
-        echo "Changes detected, recloning repository..."; \
-        rm -rf .; \
-        git clone https/github.com/blueyaGIT/push_swap.git .; \
-    else \
-        echo "No changes detected."; \
-    fi
+# Rule to fix certain errors
+fix: remove-submodules init-submodules $(NAME)
 
 # Clean object files and libraries
 clean: remove-submodules
@@ -120,4 +121,4 @@ fclean: clean
 re: fclean all
 
 # Phony targets
-.PHONY: all clean fclean re libft init-submodules remove-submodules
+.PHONY: all clean fclean re libft init-submodules remove-submodules fix
