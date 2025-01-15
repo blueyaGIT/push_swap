@@ -25,7 +25,7 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS_FILES = 	main.c 
+SRCS = main.c
 
 # Object files
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
@@ -34,7 +34,7 @@ TOTAL_SRCS = $(words $(SRCS))
 CURRENT = 0
 
 # Default rule to compile all
-all: init-submodules $(NAME)
+all: $(NAME)
 
 -include $(OBJS:.o=.d)
 
@@ -48,7 +48,7 @@ $(OBJ_DIR)/%.o: %.c
 # Initialize submodules
 init-submodules: init-libft
 
-#Initialize libft
+# Initialize libft
 init-libft:
 	@sleep 0.15
 	@if [ ! -d "$(LIBFT_DIR)" ]; then \
@@ -61,29 +61,40 @@ init-libft:
 		echo "$(GREEN)✅ LIBFT submodule is already initialized ✅$(NC)"; \
 	fi
 
-#Remove submodules
+# Remove submodules
 remove-submodules: remove-libft
 
-#Remove libft
+# Remove libft
 remove-libft:
 	@if [ -d "$(LIBFT_DIR)" ]; then \
+		echo "$(YELLOW)❌ Removing LIBFT submodule ❌$(NC)"; \
 		git submodule deinit -q -f $(LIBFT_DIR) > /dev/null 2>&1; \
 		git rm -q -f $(LIBFT_DIR) > /dev/null 2>&1; \
 		rm -rf .git/modules/$(LIBFT_DIR) > /dev/null 2>&1; \
 	fi
 
-#Rule to compile libft
+# Rule to compile libft
 $(LIBFT_LIB): init-libft
 	@if [ ! -f "$(LIBFT_LIB)" ]; then \
 		echo "$(CLEAR_LINE)$(YELLOW)🚧 Building LIBFT 🚧$(NC)"; \
 		$(MAKE) -C $(LIBFT_DIR); \
 	fi
 
-#Rule to compile program
+# Rule to compile program
 $(NAME): init-submodules $(LIBFT_LIB) $(OBJS)
 	@echo "$(CLEAR_LINE)$(YELLOW)🚧 Building PUSH_SWAP 🚧$(NC)"
 	@$(CC) -o $(NAME) $(OBJS) $(LIBFTFLAGS)
 	@echo "$(CLEAR_LINE)$(GREEN)✅ Done Compiling ✅$(NC)"
+
+# Rule to check for changes and reclone if necessary
+fix:
+    @if [ -n "$$(git -C . status --porcelain)" ]; then \
+        echo "Changes detected, recloning repository..."; \
+        rm -rf .; \
+        git clone https/github.com/blueyaGIT/push_swap.git .; \
+    else \
+        echo "No changes detected."; \
+    fi
 
 # Clean object files and libraries
 clean: remove-submodules

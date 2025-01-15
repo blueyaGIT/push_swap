@@ -6,16 +6,17 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2025/01/15 11:01:54 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/01/15 11:16:07 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("TEST\n");
-	return ;
+	if (argc > 0)
+		printf("%s\n", argv[1]);
+	return 0;
 }
 /*
 void	print_stack(t_stack *a, t_stack *b)
