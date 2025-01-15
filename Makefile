@@ -1,9 +1,20 @@
-NAME = libftpush_swap.a
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS_DIR = ./srcs
-LIBFT_DIR = ./includes/libft
-LIBFT = $(LIBFT_DIR)/libft.a
+OBJ_DIR := ./obj
+DEP_DIR := $(OBJ_DIR)/.deps
+INC_DIRS := ./includes
+SRC_DIRS := ./srcs
+vpath %.c $(SRC_DIRS)
+vpath %.h $(INC_DIRS)
+vpath %.d $(DEP_DIR)
+
+LIBFT_DIR = $(INC_DIRS)/libft
+LIBFT = libft.a
+LIBFT_LIB = $(LIBFT_DIR)/$(LIBFT)
+LIBFTFLAGS = -L$(LIBFT_DIR) -lft
+LIBFT_REPO = https://github.com/blueyaGIT/libft.git
+
 RED = \033[31m
 GREEN = \033[32m
 YELLOW = \033[33m
@@ -14,70 +25,88 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS_FILES = 	push_swap.c \
-        		stack_control.c  \
-				stack_control2.c \
-				stack_control3.c \
-				stack_control_utils.c \
-				utils.c \
-				utils2.c \
-				algorithm.c \
-				algorithm_utils.c \
-				algorithm_utils2.c
+SRCS_FILES = 	main.c 
 
-# Combine SRCS_DIR and the source filenames
-SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
+# Object files
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 TOTAL_SRCS = $(words $(SRCS))
 CURRENT = 0
 
-# Object files
-OBJS = $(SRCS:.c=.o)
-
 # Default rule to compile all
-all: $(LIBFT) $(NAME)
+all: init-submodules $(NAME)
 
-# Rule to create the library
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o push_swap $(OBJS) $(LIBFT)
-	@echo "\n$(GREEN)✅ Done Compiling ✅$(NC)"
+-include $(OBJS:.o=.d)
 
-# Rule to compile libft
-$(LIBFT):
-	@echo "$(YELLOW)🚧 Compiling 🚧$(NC)"
-	@sleep 0.3
-	@$(MAKE) -C $(LIBFT_DIR)
-
-# Object file compilation rule
-.c.o:
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(@D)
 	@$(eval CURRENT := $(shell echo $$(($(CURRENT) + 1))))
 	@$(eval PERCENT := $(shell echo $$(($(CURRENT) * 100 / $(TOTAL_SRCS)))))
-	@printf "$(CLEAR_LINE)$(YELLOW)Compiling $(PERCENT)%% [$(CURRENT)/$(TOTAL_SRCS)] $(CYAN)$<$(NC)"
-	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@printf "$(CLEAR_LINE)$(YELLOW)🚧 Compiling $(PERCENT)%% [$(CURRENT)/$(TOTAL_SRCS)] $(CYAN)$<$(NC) 🚧"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+# Initialize submodules
+init-submodules: init-libft
+
+#Initialize libft
+init-libft:
+	@sleep 0.15
+	@if [ ! -d "$(LIBFT_DIR)" ]; then \
+		echo "$(YELLOW)🚧 Adding LIBFT submodule 🚧$(NC)"; \
+		git submodule add $(LIBFT_REPO) $(LIBFT_DIR) > /dev/null 2>&1 || (echo "$(RED)Failed to add libft submodule$(NC)" && exit 1); \
+	elif [ -z "$$(ls -A $(LIBFT_DIR) 2>/dev/null)" ]; then \
+		echo "$(CYAN)🔄 Updating LIBFT submodule 🔄$(NC)"; \
+		git submodule update --init --recursive $(LIBFT_DIR) > /dev/null 2>&1 || (echo "$(RED)Failed to update libft submodule$(NC)" && exit 1); \
+	else \
+		echo "$(GREEN)✅ LIBFT submodule is already initialized ✅$(NC)"; \
+	fi
+
+#Remove submodules
+remove-submodules: remove-libft
+
+#Remove libft
+remove-libft:
+	@if [ -d "$(LIBFT_DIR)" ]; then \
+		git submodule deinit -q -f $(LIBFT_DIR) > /dev/null 2>&1; \
+		git rm -q -f $(LIBFT_DIR) > /dev/null 2>&1; \
+		rm -rf .git/modules/$(LIBFT_DIR) > /dev/null 2>&1; \
+	fi
+
+#Rule to compile libft
+$(LIBFT_LIB): init-libft
+	@if [ ! -f "$(LIBFT_LIB)" ]; then \
+		echo "$(CLEAR_LINE)$(YELLOW)🚧 Building LIBFT 🚧$(NC)"; \
+		$(MAKE) -C $(LIBFT_DIR); \
+	fi
+
+#Rule to compile program
+$(NAME): init-submodules $(LIBFT_LIB) $(OBJS)
+	@echo "$(CLEAR_LINE)$(YELLOW)🚧 Building PUSH_SWAP 🚧$(NC)"
+	@$(CC) -o $(NAME) $(OBJS) $(LIBFTFLAGS)
+	@echo "$(CLEAR_LINE)$(GREEN)✅ Done Compiling ✅$(NC)"
 
 # Clean object files and libraries
-clean:
-	@rm -f $(OBJS)
-	@cd $(LIBFT_DIR) && make clean
+clean: remove-submodules
+	@rm -rf $(OBJ_DIR)
+	@rm -rf $(LIBFT_DIR)
 
 # Clean all generated files
 fclean: clean
 	@echo "$(YELLOW)🚧 Cleaning 🚧$(NC)"
-	@sleep 0.3
-	@printf "$(CLEAR_LINE)$(RED)🧹 Cleaning in Progress 🧹$(NC)"
-	@sleep 0.3
-	@printf "$(CLEAR_LINE)$(YELLOW)🛁 Scrubbing Code 🛁$(NC)"
-	@sleep 0.3
-	@printf "$(CLEAR_LINE)$(CYAN)🧽 Polishing Project 🧽$(NC)"
-	@sleep 0.3
-	@printf "$(CLEAR_LINE)$(MAGENTA)🧴 Tidying Up 🧴$(NC)"
-	@sleep 0.3
-	@printf "$(CLEAR_LINE)$(GREEN)✅ Done Cleaning ✅$(NC)\n"
-	@rm -f $(NAME) push_swap
-	@cd $(LIBFT_DIR) && make fclean
+	@sleep 0.15
+	@printf "$(RED)🧹 Cleaning in Progress 🧹$(NC)\n"
+	@sleep 0.15
+	@printf "$(YELLOW)🛁 Scrubbing Code 🛁$(NC)\n"
+	@sleep 0.15
+	@printf "$(CYAN)🧽 Polishing Project 🧽$(NC)\n"
+	@sleep 0.15
+	@printf "$(MAGENTA)🧴 Tidying Up 🧴$(NC)\n"
+	@sleep 0.15
+	@printf "$(GREEN)✅ Done Cleaning ✅$(NC)\n"
+	@rm -rf $(NAME)
 
 # Rebuild everything
 re: fclean all
 
 # Phony targets
-.PHONY: all clean fclean re $(LIBFT)
+.PHONY: all clean fclean re libft init-submodules remove-submodules

@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/01/15 11:01:54 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	main(void)
+{
+	printf("TEST\n");
+	return ;
+}
+/*
 void	print_stack(t_stack *a, t_stack *b)
 {
 	t_stack	*current_a;
@@ -69,3 +75,16 @@ int	main(int argc, char **argv)
 	free_stacks(a, b);
 	return (0);
 }
+
+
+\
+        		stack_control.c  \
+				stack_control2.c \
+				stack_control3.c \
+				stack_control_utils.c \
+				utils.c \
+				utils2.c \
+				algorithm.c \
+				algorithm_utils.c \
+				algorithm_utils2.c
+*/
