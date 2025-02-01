@@ -11,6 +11,10 @@
 
 `push_swap` is a sorting algorithm project that sorts a stack of integers with a limited set of operations. The objective is to sort the numbers using the fewest possible moves. This project is part of the 42 School curriculum.
 
+## TODO:
+- [ ][fix cost calculation](./srcs/algorithm.c)
+- [ ][restructure main func](./srcs/main.c)
+
 ## Usage
 
 To use `push_swap`, clone the repository in the root of your project using one of the following commands:

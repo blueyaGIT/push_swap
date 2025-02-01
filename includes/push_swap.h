@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 16:26:42 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:59:39 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void					rrr(t_stack **a, t_stack **b);
 
 // Sorting functions
 
-void					mechanical_turk_sort(t_stack *a, t_stack *b);
-void					mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b);
+void					do_sort(t_stack *a, t_stack *b);
+void					do_sort_b_to_a(t_stack *a, t_stack *b);
 void					sort_two(t_stack *a);
 void					sort_three(t_stack *a);
 

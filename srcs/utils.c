@@ -6,20 +6,20 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2025/01/27 16:24:29 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/01 19:59:39 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // Sorts stack `b` back into stack `a`
-void	mechanical_turk_sort_b_to_a(t_stack *a, t_stack *b)
+void	do_sort_b_to_a(t_stack *a, t_stack *b)
 {
 	while (b != NULL)
 		pa(&a, &b);
 }
 
-void	mechanical_turk_sort(t_stack *a, t_stack *b)
+void	do_sort(t_stack *a, t_stack *b)
 {
 	int		a_steps;
 	int		b_steps;
@@ -36,7 +36,7 @@ void	mechanical_turk_sort(t_stack *a, t_stack *b)
 		printf("\nDuring-Sort\n");
 		print_stack(a, b);
 	}
-	mechanical_turk_sort_b_to_a(a, b);
+	do_sort_b_to_a(a, b);
 	return ;
 }
 
