@@ -1,4 +1,12 @@
-<a href="https://github.com/blueyaGIT/push_swap"><img src="https://github.com/blueyaGIT/blueyaGIT/blob/b34a5a4e10b9019609659eaa0541a4325db88ca5/covers/cover-push_swap.png"></a>
+<p align="center">
+  <img src="https://github.com/blueyaGIT/blueyaGIT/blob/master/42_badges/push_swapn.png?raw=true" alt="push_swap"/>
+</p>
+
+<p align="center">
+  Score: <i>WIP/100</i><br>
+  Finished: <i>??.??.2025</i><br>
+</p>
+
 ###
 
 `push_swap` is a sorting algorithm project that sorts a stack of integers with a limited set of operations. The objective is to sort the numbers using the fewest possible moves. This project is part of the 42 School curriculum.
