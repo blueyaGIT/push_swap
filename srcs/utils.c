@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/01 19:59:39 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/02 18:41:22 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	do_sort(t_stack *a, t_stack *b)
 	while (is_sorted(a) != 1)
 	{
 		best = find_best_move(a, b);
-		a_steps = calculate_steps_a(a, best);
-		b_steps = calculate_steps_b(b, find_target_position(b, a->nbr));
+		a_steps = calculate_steps(a, best);
+		b_steps = calculate_steps(b, find_target_position(b, a->nbr));
 		rotate_stack(a, a_steps, best, e_a);
 		rotate_stack(b, b_steps, best, e_b);
 		pb(&a, &b);

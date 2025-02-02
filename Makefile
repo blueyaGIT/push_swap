@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g3
 OBJ_DIR := ./obj
 DEP_DIR := $(OBJ_DIR)/.deps
 INC_DIRS := ./includes
@@ -30,11 +30,14 @@ SRCS = 	main.c \
 		stack_control2.c \
 		stack_control3.c \
 		stack_control_utils.c \
+		stack_utils.c \
 		utils.c \
 		utils2.c \
+		utils3.c \
 		algorithm.c \
 		algorithm_utils.c \
-		algorithm_utils2.c
+		algorithm_utils2.c \
+		split_args.c
 
 # Object files
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))

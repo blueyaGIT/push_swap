@@ -6,24 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:20:50 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/02 18:41:00 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	calculate_steps_b(t_stack *b, int num)
-{
-	long	target_position;
-	int		total_steps_b;
-
-	target_position = find_target_position(b, num);
-	total_steps_b = min_steps(calculate_rx_steps(b, target_position),
-			calculate_rrx_steps(b, target_position));
-	return (total_steps_b);
-}
-
-int	calculate_steps_a(t_stack *a, int num)
+int	calculate_steps(t_stack *a, int num)
 {
 	int	total_steps_a;
 

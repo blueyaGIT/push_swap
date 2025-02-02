@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:44:35 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/02 18:47:04 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ long	find_best_move(t_stack *stack_a, t_stack *stack_b)
 	while (current_a != NULL)
 	{
 		num = current_a->nbr;
-		if (calculate_steps_a(stack_a, num) < best_steps_a
-			&& calculate_steps_b(stack_b, num) < best_steps_b)
+		if (calculate_steps(stack_a, num) < best_steps_a
+			&& calculate_steps(stack_b, find_target_position(stack_b,
+					num)) < best_steps_b)
 		{
-			best_steps_a = calculate_steps_a(stack_a, num);
-			best_steps_b = calculate_steps_b(stack_b, num);
+			best_steps_a = calculate_steps(stack_a, num);
+			best_steps_b = calculate_steps(stack_b,
+					find_target_position(stack_b, num));
 			best_num = num;
 		}
 		current_a = current_a->next;

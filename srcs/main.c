@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/01 19:59:05 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/02 18:10:01 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,17 @@ void	print_stack(t_stack *a, t_stack *b)
 	ft_printf("-       -\na       b\n\n");
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		temp;
 
 	temp = 0;
-	if (argc < 2)
-		return (ft_printf("Usage: %s <numbers_to_sort>\n", argv[0]), 1);
-	init_stack(&a);
-	init_stack(&b);
-	while (++temp < argc)
-		ft_push(&a, ft_atoi(argv[temp]), temp - 1);
+	if (ac < 2)
+		return (ft_printf("Usage: %s <numbers_to_sort>\n", av[0]), 1);
+	a = fill_stack(ac, av);
+	b = NULL;
 	printf("Pre-Sort\n");
 	print_stack(a, b);
 	do_sort(a, b);
