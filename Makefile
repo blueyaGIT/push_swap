@@ -25,19 +25,24 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS = 	main.c \
-		stack_control.c  \
+SRCS =	main.c \
+		arg_check.c \
+		calc_rota.c \
+		calc_rotb.c \
+		find_rotation.c \
+		sort_a.c \
+		sort_b.c \
+		sort_utils.c \
+		split_args.c \
+		spot.c \
+		stack_control.c \
 		stack_control2.c \
 		stack_control3.c \
 		stack_control_utils.c \
 		stack_utils.c \
 		utils.c \
 		utils2.c \
-		utils3.c \
-		algorithm.c \
-		algorithm_utils.c \
-		algorithm_utils2.c \
-		split_args.c
+		utils3.c 
 
 # Object files
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))

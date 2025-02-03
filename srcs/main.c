@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 17:17:02 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 19:12:41 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ int	main(int ac, char **av)
 	a = fill_stack(ac, av);
 	if (!a || duplicate_check(a))
 	{
-		free_stack(&a);
+		free_stack(a);
 		exit(EXIT_FAILURE);
 	}
 	printf("Pre-Sort\n");
-	print_stack(&a);
+	print_stack(a);
 	if (!is_sorted(a))
-		do_sort(&a);
+		do_sort(a);
 	printf("\nPost-Sort\n");
-	print_stack(&a);
-	free_stack(&a);
+	print_stack(a);
+	free_stack(a);
 	return (0);
 }

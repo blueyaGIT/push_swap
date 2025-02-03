@@ -6,13 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:08:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/02 18:28:27 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:37:06 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stackadd_back(t_stack **stack, t_stack *stack_new)
+void	stack_revadd(t_stack **stack, t_stack *stack_new)
 {
 	if (!stack)
 		return ;
@@ -22,7 +22,7 @@ void	ft_stackadd_back(t_stack **stack, t_stack *stack_new)
 		(lstlast_ps(*stack))->next = stack_new;
 }
 
-int	ft_atoi_push_swap(const char *str)
+int	atoi_ps(const char *str)
 {
 	int				sign;
 	long long int	i;
@@ -80,7 +80,7 @@ t_stack	*new_stack(int content, int idx)
 	if (!new)
 		exit(EXIT_FAILURE);
 	new->nbr = content;
-	new->index = idx;
+	new->idx = idx;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

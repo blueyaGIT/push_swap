@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:37:26 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/02 18:29:06 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 19:02:42 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ t_stack	*fill_help(char **av)
 {
 	t_stack	*a;
 	char	**spitted;
-	int		i;
-	int		j;
+	int		temp;
+	int		temp2;
 
 	a = NULL;
-	i = 0;
+	temp = 0;
 	spitted = ft_split(av[1], ' ');
-	while (spitted[i])
+	while (spitted[temp])
 	{
-		j = ft_atoi_push_swap(spitted[i]);
-		ft_stackadd_back(&a, new_stack(j, i));
-		i++;
+		temp2 = atoi_ps(spitted[temp]);
+		stack_revadd(&a, new_stack(temp2, temp));
+		temp++;
 	}
 	free_splitted(spitted);
 	free(spitted);
@@ -36,10 +36,10 @@ t_stack	*fill_help(char **av)
 t_stack	*fill_stack(int ac, char **av)
 {
 	t_stack	*a;
-	int		i;
-	int		j;
+	int		temp;
+	int		temp2;
 
-	i = 1;
+	temp = 1;
 	a = NULL;
 	if (ac < 2)
 		exit(EXIT_FAILURE);
@@ -47,11 +47,11 @@ t_stack	*fill_stack(int ac, char **av)
 		a = fill_help(av);
 	else
 	{
-		while (i < ac)
+		while (temp < ac)
 		{
-			j = ft_atoi_push_swap(av[i]);
-			ft_stackadd_back(&a, new_stack(j, i));
-			i++;
+			temp2 = atoi_ps(av[temp]);
+			stack_revadd(&a, new_stack(temp2, temp));
+			temp++;
 		}
 	}
 	return (a);

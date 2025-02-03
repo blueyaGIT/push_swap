@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:12:40 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/02 18:20:29 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 19:05:28 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 int	min_ps(t_stack *a)
 {
-	int		i;
+	int		temp;
 
-	i = a->nbr;
+	temp = a->nbr;
 	while (a)
 	{
-		if (a->nbr < i)
-			i = a->nbr;
+		if (a->nbr < temp)
+			temp = a->nbr;
 		a = a->next;
 	}
-	return (i);
+	return (temp);
 }
 
 int	max_ps(t_stack *a)
 {
-	int		i;
+	int		temp;
 
-	i = a->nbr;
+	temp = a->nbr;
 	while (a)
 	{
-		if (a->nbr > i)
-			i = a->nbr;
+		if (a->nbr > temp)
+			temp = a->nbr;
 		a = a->next;
 	}
-	return (i);
+	return (temp);
 }
 
 void	free_splitted(char **splitted)
