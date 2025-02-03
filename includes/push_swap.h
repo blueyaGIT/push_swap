@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 19:13:15 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 19:29:32 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
-
-typedef enum s_stack_definer
-{
-	up,
-	down,
-	e_a,
-	e_b
-}					t_stack_definer;
 
 // main functions
 void				print_stack(t_stack *a);
@@ -92,4 +84,5 @@ int					calc_ra_rb_a(t_stack *a, t_stack *b, long num);
 int					calc_ra_rrb_a(t_stack *a, t_stack *b, int num);
 int					calc_rra_rb_a(t_stack *a, t_stack *b, int num);
 int					calc_rra_rrb_a(t_stack *a, t_stack *b, int num);
+
 #endif /* PUSH_SWAP_H */
