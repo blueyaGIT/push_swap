@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/02 18:41:22 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 17:25:02 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,30 @@ void	do_sort_b_to_a(t_stack *a, t_stack *b)
 		pa(&a, &b);
 }
 
-void	do_sort(t_stack *a, t_stack *b)
+void	do_sort(t_stack *a)
 {
-	int		a_steps;
-	int		b_steps;
-	long	best;
+	t_stack	*b;
+	int		i;
 
-	while (is_sorted(a) != 1)
+	b = NULL;
+	if (lstsize_ps(&a) == 2)
+		sa(&a);
+	else
 	{
-		best = find_best_move(a, b);
-		a_steps = calculate_steps(a, best);
-		b_steps = calculate_steps(b, find_target_position(b, a->nbr));
-		rotate_stack(a, a_steps, best, e_a);
-		rotate_stack(b, b_steps, best, e_b);
-		pb(&a, &b);
-		printf("\nDuring-Sort\n");
-		print_stack(a, b);
+		b = ft_sort_b(a);
+		a = ft_sort_a(a, &b);
+		i = ft_find_index(a, min_ps(a));
+		if (i < lstsize_ps(a) - i)
+		{
+			while ((a)->nbr != min_ps(a))
+				ra(a);
+		}
+		else
+		{
+			while ((a)->nbr != min_ps(a))
+				rra(a);
+		}
 	}
-	do_sort_b_to_a(a, b);
 	return ;
 }
 

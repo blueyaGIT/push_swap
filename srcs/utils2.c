@@ -6,26 +6,23 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:14:25 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/03 17:13:08 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_stacks(t_stack *stack, t_stack *b)
+void	free_stack(t_stack *stack)
 {
 	t_stack	*temp;
 
+	if (!stack)
+		return ;
 	while (stack != NULL)
 	{
 		temp = stack;
+		temp->nbr = 0;
 		stack = stack->next;
-		free(temp);
-	}
-	while (b != NULL)
-	{
-		temp = b;
-		b = b->next;
 		free(temp);
 	}
 }
