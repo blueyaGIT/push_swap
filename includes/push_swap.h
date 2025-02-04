@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 19:29:32 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:00:46 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
+
+typedef enum s_sdef
+{
+	stack_a,
+	stack_b,
+	a_to_b,
+	b_to_a
+}					t_sdef;
 
 // main functions
 void				print_stack(t_stack *a);
@@ -84,5 +92,13 @@ int					calc_ra_rb_a(t_stack *a, t_stack *b, long num);
 int					calc_ra_rrb_a(t_stack *a, t_stack *b, int num);
 int					calc_rra_rb_a(t_stack *a, t_stack *b, int num);
 int					calc_rra_rrb_a(t_stack *a, t_stack *b, int num);
+int					do_ra_rb(t_stack **a, t_stack **b, int num,
+						t_sdef direction);
+int					do_ra_rrb(t_stack **a, t_stack **b, int num,
+						t_sdef direction);
+int					do_rra_rb(t_stack **a, t_stack **b, int num,
+						t_sdef direction);
+int					do_rra_rrb(t_stack **a, t_stack **b, int num,
+						t_sdef direction);
 
 #endif /* PUSH_SWAP_H */

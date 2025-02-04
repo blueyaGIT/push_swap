@@ -6,14 +6,14 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:24:59 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 18:58:41 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:01:36 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /**
- * calculates the cheapest rotation method to push from b to a
+ * calculates the cheapest rotation method to push from `b` to `a`
  */
 int	ba_rotate(t_stack *a, t_stack *b)
 {
@@ -38,7 +38,7 @@ int	ba_rotate(t_stack *a, t_stack *b)
 }
 
 /**
- * calculates the cheapest rotation method to push from a to b
+ * calculates the cheapest rotation method to push from `a` to `b`
  */
 int	ab_rotate(t_stack *a, t_stack *b)
 {
