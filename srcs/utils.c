@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 18:15:53 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 23:33:11 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 // Checks if the stack `a` is sorted in ascending order
 int	is_sorted(t_stack *a)
 {
-	if (a == NULL)
-		return (1);
-	while (a->next != NULL)
+	int	temp;
+
+	temp = a->nbr;
+	while (a)
 	{
-		if (a->nbr > a->next->nbr)
+		if (temp > a->nbr)
 			return (0);
+		temp = a->nbr;
 		a = a->next;
 	}
 	return (1);

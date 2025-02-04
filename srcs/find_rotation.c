@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:24:59 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 18:04:29 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 23:46:18 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	ba_rotate(t_stack *a, t_stack *b)
 	{
 		if (count > calc_ra_rb_a(a, b, temp->nbr))
 			count = calc_ra_rb_a(a, b, temp->nbr);
+		if (count > calc_rra_rrb_a(a, b, temp->nbr))
+			count = calc_rra_rrb_a(a, b, temp->nbr);
 		if (count > calc_ra_rrb_a(a, b, temp->nbr))
 			count = calc_ra_rrb_a(a, b, temp->nbr);
 		if (count > calc_rra_rb_a(a, b, temp->nbr))
 			count = calc_rra_rb_a(a, b, temp->nbr);
-		if (count > calc_rra_rrb_a(a, b, temp->nbr))
-			count = calc_rra_rrb_a(a, b, temp->nbr);
 		temp = temp->next;
 	}
 	return (count);
@@ -51,12 +51,12 @@ int	ab_rotate(t_stack *a, t_stack *b)
 	{
 		if (count > calc_ra_rb(a, b, temp->nbr))
 			count = calc_ra_rb(a, b, temp->nbr);
+		if (count > calc_rra_rrb(a, b, temp->nbr))
+			count = calc_rra_rrb(a, b, temp->nbr);
 		if (count > calc_ra_rrb(a, b, temp->nbr))
 			count = calc_ra_rrb(a, b, temp->nbr);
 		if (count > calc_rra_rb(a, b, temp->nbr))
 			count = calc_rra_rb(a, b, temp->nbr);
-		if (count > calc_rra_rrb(a, b, temp->nbr))
-			count = calc_rra_rrb(a, b, temp->nbr);
 		temp = temp->next;
 	}
 	return (count);

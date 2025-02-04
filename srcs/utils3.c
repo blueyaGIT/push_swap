@@ -6,20 +6,20 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:08:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:52:12 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 23:20:25 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	stack_revadd(t_stack **stack, t_stack *stack_new)
+void	stack_revadd(t_stack **stack, t_stack *new)
 {
 	if (!stack)
 		return ;
 	if (!*stack)
-		*stack = stack_new;
+		*stack = new;
 	else
-		(lstlast_ps(*stack))->next = stack_new;
+		(lstlast_ps(*stack))->next = new;
 }
 
 int	atoi_ps(const char *str)
@@ -29,7 +29,8 @@ int	atoi_ps(const char *str)
 
 	num = 0;
 	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n')
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
+		|| *str == '\v' || *str == '\r')
 		str++;
 	if (*str == '-')
 	{
@@ -50,29 +51,29 @@ int	atoi_ps(const char *str)
 	return (sign * num);
 }
 
-t_stack	*lstlast_ps(t_stack *lst)
+t_stack	*lstlast_ps(t_stack *stack)
 {
-	if (!lst)
+	if (!stack)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
-int	lstsize_ps(t_stack *lst)
+int	lstsize_ps(t_stack *stack)
 {
 	size_t	temp;
 
 	temp = 0;
-	while (lst)
+	while (stack)
 	{
-		lst = lst->next;
+		stack = stack->next;
 		temp++;
 	}
 	return (temp);
 }
 
-t_stack	*new_stack(int content, int idx)
+t_stack	*new_stack(int content)
 {
 	t_stack	*new;
 
@@ -80,8 +81,6 @@ t_stack	*new_stack(int content, int idx)
 	if (!new)
 		error_msg();
 	new->nbr = content;
-	new->idx = idx;
 	new->next = NULL;
-	new->prev = NULL;
 	return (new);
 }

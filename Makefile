@@ -25,9 +25,9 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS =	arg_check.c \
-		calc_rota.c \
+SRCS =	calc_rota.c \
 		calc_rotb.c \
+		dup_check.c \
 		find_rotation.c \
 		main.c \
 		push.c \
@@ -102,9 +102,6 @@ $(NAME): init-submodules $(LIBFT_LIB) $(OBJS)
 	@echo "$(CLEAR_LINE)$(YELLOW)🚧 Building PUSH_SWAP 🚧$(NC)"
 	@$(CC) -o $(NAME) $(OBJS) $(LIBFTFLAGS)
 	@echo "$(CLEAR_LINE)$(GREEN)✅ Done Compiling ✅$(NC)"
-
-# Rule to fix certain errors
-fix: remove-submodules init-submodules $(NAME)
 
 # Clean object files and libraries
 clean: remove-submodules

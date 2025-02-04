@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:16:27 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 18:03:20 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 23:44:45 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ t_stack	*sort_b(t_stack **a)
 	t_stack	*b;
 
 	b = NULL;
-	pb(a, &b);
-	pb(a, &b);
+	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
+		pb(a, &b);
+	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
+		pb(a, &b);
 	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
 		sort_b_small(a, &b);
 	if (!is_sorted(*a))
@@ -47,12 +49,12 @@ void	sort_b_small(t_stack **a, t_stack **b)
 		{
 			if (rotdir == calc_ra_rb(*a, *b, temp->nbr))
 				rotdir = do_ra_rb(a, b, temp->nbr, a_to_b);
+			else if (rotdir == calc_rra_rrb(*a, *b, temp->nbr))
+				rotdir = do_rra_rrb(a, b, temp->nbr, a_to_b);
 			else if (rotdir == calc_ra_rrb(*a, *b, temp->nbr))
 				rotdir = do_ra_rrb(a, b, temp->nbr, a_to_b);
 			else if (rotdir == calc_rra_rb(*a, *b, temp->nbr))
 				rotdir = do_rra_rb(a, b, temp->nbr, a_to_b);
-			else if (rotdir == calc_rra_rrb(*a, *b, temp->nbr))
-				rotdir = do_rra_rrb(a, b, temp->nbr, a_to_b);
 			else
 				temp = temp->next;
 		}

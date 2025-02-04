@@ -6,13 +6,13 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:41:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 18:03:29 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 23:59:43 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	calc_ra_rb(t_stack *a, t_stack *b, long num)
+int	calc_ra_rb(t_stack *a, t_stack *b, int num)
 {
 	int	temp;
 

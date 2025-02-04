@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:37:26 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:52:12 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 00:07:48 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ t_stack	*fill_help(char **av)
 {
 	int		temp;
 	int		temp2;
-	char	**spitted;
+	char	**splitted;
 	t_stack	*a;
 
 	a = NULL;
 	temp = 0;
-	spitted = ft_split(av[1], ' ');
-	while (spitted[temp])
+	splitted = split_ps(av[1], ' ');
+	while (splitted[temp])
 	{
-		temp2 = atoi_ps(spitted[temp]);
-		stack_revadd(&a, new_stack(temp2, temp));
+		temp2 = atoi_ps(splitted[temp]);
+		stack_revadd(&a, new_stack(temp2));
 		temp++;
 	}
-	free_splitted(spitted);
-	free(spitted);
+	free_splitted(splitted);
+	free(splitted);
 	return (a);
 }
 
@@ -50,7 +50,7 @@ t_stack	*fill_stack(int ac, char **av)
 		while (temp < ac)
 		{
 			temp2 = atoi_ps(av[temp]);
-			stack_revadd(&a, new_stack(temp2, temp));
+			stack_revadd(&a, new_stack(temp2));
 			temp++;
 		}
 	}
