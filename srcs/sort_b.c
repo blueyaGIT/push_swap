@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:16:27 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:15:24 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:03:20 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@
  */
 t_stack	*sort_b(t_stack **a)
 {
-	printf("Inside sort_b\n");
 	t_stack	*b;
 
 	b = NULL;
 	pb(a, &b);
 	pb(a, &b);
-	printf("after double push\n");
 	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
 		sort_b_small(a, &b);
 	if (!is_sorted(*a))
@@ -38,18 +36,15 @@ t_stack	*sort_b(t_stack **a)
  */
 void	sort_b_small(t_stack **a, t_stack **b)
 {
-	printf("Inside sort_b_small\n");
 	int		rotdir;
 	t_stack	*temp;
 
 	while (lstsize_ps(*a) > 3 && !is_sorted(*a))
 	{
-		printf("Inside while\n");
 		temp = *a;
 		rotdir = ab_rotate(*a, *b);
 		while (rotdir >= 0)
 		{
-			printf("Inside 2ndwhile\n");
 			if (rotdir == calc_ra_rb(*a, *b, temp->nbr))
 				rotdir = do_ra_rb(a, b, temp->nbr, a_to_b);
 			else if (rotdir == calc_ra_rrb(*a, *b, temp->nbr))

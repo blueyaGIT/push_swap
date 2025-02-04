@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:15:57 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:25:13 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:03:07 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	find_idx(t_stack *a, int num)
 {
-	printf("Inside find_idx\n");
 	int		count;
 
 	count = 0;
@@ -29,7 +28,6 @@ int	find_idx(t_stack *a, int num)
 
 void	do_sort(t_stack *a)
 {
-	printf("Inside do_sort\n");
 	int		idx;
 	t_stack	*b;
 
@@ -38,7 +36,6 @@ void	do_sort(t_stack *a)
 		sa(&a);
 	else
 	{
-		printf("Inside do_sort first else\n");
 		b = sort_b(&a);
 		a = *sort_a(&a, &b);
 		idx = find_idx(a, min_ps(a));
@@ -59,7 +56,6 @@ void	do_sort(t_stack *a)
 // Sorts a stack with two elements
 void	sort_two(t_stack **a)
 {
-	printf("Inside sort_two\n");
 	if (!is_sorted(*a))
 		sa(a);
 }
@@ -67,7 +63,6 @@ void	sort_two(t_stack **a)
 // Sorts a stack with three elements
 void	sort_three(t_stack **a)
 {
-	printf("Inside sort_three\n");
 	if (max_ps(*a) == (*a)->nbr)
 	{
 		ra(a);

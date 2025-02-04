@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:41:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:17:26 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:03:29 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	calc_ra_rb(t_stack *a, t_stack *b, long num)
 {
-		printf("Inside calc_ra_rb\n");
 	int	temp;
 
 	temp = find_spot_b(b, num);

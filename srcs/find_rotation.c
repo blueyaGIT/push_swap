@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:24:59 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:17:14 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:04:29 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	ba_rotate(t_stack *a, t_stack *b)
  */
 int	ab_rotate(t_stack *a, t_stack *b)
 {
-	printf("Inside ab_rotate\n");
 	int		count;
 	t_stack	*temp;
 
@@ -50,7 +49,6 @@ int	ab_rotate(t_stack *a, t_stack *b)
 	count = calc_rra_rrb(a, b, a->nbr);
 	while (temp)
 	{
-		printf("Inside while\n");
 		if (count > calc_ra_rb(a, b, temp->nbr))
 			count = calc_ra_rb(a, b, temp->nbr);
 		if (count > calc_ra_rrb(a, b, temp->nbr))

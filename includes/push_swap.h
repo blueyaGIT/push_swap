@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:52:42 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:04:02 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef enum s_sdef
 }					t_sdef;
 
 // main functions
-void				print_stack(t_stack *a);
+// void				print_stack(t_stack *a);
 
 // Implementations of stack operations
 void				sx(t_stack **stack);

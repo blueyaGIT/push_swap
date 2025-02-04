@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:33:26 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:46:12 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:05:03 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	find_spot_a(t_stack *a, int num)
 	else
 	{
 		temp = a->next;
-		while (a->nbr > num || temp->nbr < num)
+		while (a->next && (a->nbr > num || temp->nbr < num))
 		{
 			a = a->next;
 			temp = a->next;
@@ -40,7 +40,6 @@ int	find_spot_a(t_stack *a, int num)
 
 int	find_spot_b(t_stack *b, int num)
 {
-	printf("Inside find_spot_b\n");
 	int		spot;
 	t_stack	*temp;
 
@@ -52,14 +51,12 @@ int	find_spot_b(t_stack *b, int num)
 	else
 	{
 		temp = b->next;
-		while (b->nbr < num || temp->nbr > num)
+		while (b->next && (b->nbr < num || temp->nbr > num))
 		{
-			printf("Inside while spot_b\n");
 			b = b->next;
 			temp = b->next;
 			spot++;
 		}
 	}
-	printf("end of find_spot_b\n");
 	return (spot);
 }

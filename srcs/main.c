@@ -6,30 +6,30 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:52:12 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:03:55 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_stack(t_stack *a)
-{
-	t_stack	*current_a;
+// void	print_stack(t_stack *a)
+// {
+// 	t_stack	*current_a;
 
-	current_a = a;
-	while (current_a)
-	{
-		if (current_a)
-		{
-			ft_printf("%d", current_a->nbr);
-			current_a = current_a->next;
-		}
-		else
-			ft_printf("*");
-		printf("\n");
-	}
-	ft_printf("-\na\n\n");
-}
+// 	current_a = a;
+// 	while (current_a)
+// 	{
+// 		if (current_a)
+// 		{
+// 			ft_printf("%d", current_a->nbr);
+// 			current_a = current_a->next;
+// 		}
+// 		else
+// 			ft_printf("*");
+// 		printf("\n");
+// 	}
+// 	ft_printf("-\na\n\n");
+// }
 
 int	main(int ac, char **av)
 {
@@ -43,12 +43,8 @@ int	main(int ac, char **av)
 		free_stack(a);
 		error_msg();
 	}
-	printf("Pre-Sort\n");
-	print_stack(a);
 	if (!is_sorted(a))
 		do_sort(a);
-	printf("\nPost-Sort\n");
-	print_stack(a);
 	free_stack(a);
 	return (0);
 }
