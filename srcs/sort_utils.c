@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:15:57 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 19:02:05 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 15:46:32 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	find_idx(t_stack *a, int nbr)
 
 void	do_sort(t_stack *a)
 {
-	t_stack	*b;
 	int		idx;
+	t_stack	*b;
 
 	b = NULL;
 	if (lstsize_ps(&a) == 2)

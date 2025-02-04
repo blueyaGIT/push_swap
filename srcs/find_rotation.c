@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:24:59 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 14:01:36 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 15:44:45 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
  */
 int	ba_rotate(t_stack *a, t_stack *b)
 {
-	t_stack	*temp;
 	int		count;
+	t_stack	*temp;
 
 	temp = b;
 	count = calc_rra_rrb_a(a, b, b->nbr);
@@ -42,8 +42,8 @@ int	ba_rotate(t_stack *a, t_stack *b)
  */
 int	ab_rotate(t_stack *a, t_stack *b)
 {
-	t_stack	*temp;
 	int		count;
+	t_stack	*temp;
 
 	temp = b;
 	count = calc_rra_rrb(a, b, a->nbr);

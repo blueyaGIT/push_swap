@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:33:26 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 19:01:26 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 15:46:50 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
  */
 int	find_spot_a(t_stack *a, int num)
 {
-	t_stack	*temp;
 	int		spot;
+	t_stack	*temp;
 
 	spot = 1;
 	if (num < a->nbr && num > lstlast_ps(a)->nbr)
@@ -40,8 +40,8 @@ int	find_spot_a(t_stack *a, int num)
 
 int	find_spot_b(t_stack *b, int num)
 {
-	t_stack	*temp;
 	int		spot;
+	t_stack	*temp;
 
 	spot = 1;
 	if (num > b->nbr && num < lstlast_ps(b)->nbr)

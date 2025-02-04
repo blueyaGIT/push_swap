@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:37:26 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 19:02:42 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 15:46:44 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_stack	*fill_help(char **av)
 {
-	t_stack	*a;
-	char	**spitted;
 	int		temp;
 	int		temp2;
+	char	**spitted;
+	t_stack	*a;
 
 	a = NULL;
 	temp = 0;
@@ -35,9 +35,9 @@ t_stack	*fill_help(char **av)
 
 t_stack	*fill_stack(int ac, char **av)
 {
-	t_stack	*a;
 	int		temp;
 	int		temp2;
+	t_stack	*a;
 
 	temp = 1;
 	a = NULL;
