@@ -11,10 +11,6 @@
 
 `push_swap` is a sorting algorithm project that sorts a stack of integers with a limited set of operations. The objective is to sort the numbers using the fewest possible moves. This project is part of the 42 School curriculum.
 
-### TODO
-- [ ] implement push funcs
-- [ ] check arg parsing again
-
 ## Usage
 
 To use `push_swap`, clone the repository in the root of your project using one of the following commands:
@@ -72,15 +68,6 @@ The following operations are used to manipulate the stacks:
 - `rra` - Reverse rotate stack `A`.
 - `rrb` - Reverse rotate stack `B`.
 - `rrr` - Reverse rotate both stacks.
-
-## Files
-
-- `main.c` - Main logic of the program.
-- `stack_control*.c` - Contains all stack operations.
-- `algorithm*.c` - Implements sorting algorithms.
-- `utils*.c` - Utility functions for handling stacks and arguments.
-- `push_swap.h` - Header file with function prototypes.
-- `Makefile` - Automates compilation.
 
 ## Notes
 
