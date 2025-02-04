@@ -1,0 +1,3 @@
+[submodule "includes/libft"]
+	path = includes/libft
+	url = https://github.com/blueyaGIT/libft.git

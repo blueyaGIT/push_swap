@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:09:34 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:52:42 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void				free_stack(t_stack *stack);
 void				ft_push(t_stack **stack, long value, int idx);
 void				free_splitted(char **splitted);
 int					duplicate_check(t_stack *a);
+void				error_msg(void);
 
 // Algorithm functions
 void				do_sort(t_stack *a);
