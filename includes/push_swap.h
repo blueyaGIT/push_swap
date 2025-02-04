@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 14:00:46 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:09:34 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ int					duplicate_check(t_stack *a);
 
 // Algorithm functions
 void				do_sort(t_stack *a);
-void				sort_three(t_stack *a);
-void				sort_two(t_stack *a);
+void				sort_three(t_stack **a);
+void				sort_two(t_stack **a);
 t_stack				**sort_a(t_stack **a, t_stack **b);
-t_stack				**sort_b(t_stack **a);
+t_stack				*sort_b(t_stack **a);
+void				sort_b_small(t_stack **a, t_stack **b);
 int					find_idx(t_stack *a, int nbr);
 int					find_spot_a(t_stack *a, int num);
 int					find_spot_b(t_stack *b, int num);

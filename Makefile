@@ -25,11 +25,12 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS =	main.c \
-		arg_check.c \
+SRCS =	arg_check.c \
 		calc_rota.c \
 		calc_rotb.c \
 		find_rotation.c \
+		main.c \
+		push.c \
 		sort_a.c \
 		sort_b.c \
 		sort_utils.c \
@@ -42,7 +43,7 @@ SRCS =	main.c \
 		stack_utils.c \
 		utils.c \
 		utils2.c \
-		utils3.c 
+		utils3.c
 
 # Object files
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))

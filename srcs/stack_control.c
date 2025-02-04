@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:15:18 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:48:05 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ void	sb(t_stack **b)
 // Swap the top two elements of both stacks `a` and `b`
 void	ss(t_stack **a, t_stack **b)
 {
-	sa(a);
-	sb(b);
+	ft_printf("ss\n");
+	sx(a);
+	sx(b);
 }
 
 // Push the top element from stack `b` to stack `a`

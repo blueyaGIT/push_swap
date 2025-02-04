@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:34:42 by dalbano           #+#    #+#             */
-/*   Updated: 2024/11/25 17:10:51 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:43:31 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,78 +15,63 @@
 // Swap the top two elements of stack
 void	sx(t_stack **stack)
 {
-	t_stack	*first;
-	t_stack	*second;
+	t_stack	*temp;
 
-	if (*stack && (*stack)->next)
-	{
-		first = *stack;
-		second = (*stack)->next;
-		first->next = second->next;
-		if (second->next)
-			second->next->prev = first;
-		second->prev = NULL;
-		second->next = first;
-		first->prev = second;
-		*stack = second;
-	}
+	if (!*stack || !((*stack)->next))
+		return ;
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp->next = (*stack)->next;
+	(*stack)->next = temp;
 }
 
 // Push the top element from stack to stack
 void	px(t_stack **stack1, t_stack **stack2)
 {
-	t_stack	*top_stack_2;
+	t_stack	*temp;
 
-	if (*stack2)
-	{
-		top_stack_2 = *stack2;
-		*stack2 = (*stack2)->next;
-		if (*stack2)
-			(*stack2)->prev = NULL;
-		top_stack_2->next = *stack1;
-		if (*stack1)
-			(*stack1)->prev = top_stack_2;
-		*stack1 = top_stack_2;
-		top_stack_2->prev = NULL;
-	}
+	if (!*stack2)
+		return ;
+	temp = *stack1;
+	*stack1 = *stack2;
+	*stack2 = (*stack2)->next;
+	(*stack1)->next = temp;
 }
 
 // Rotate stack upwards (first element becomes the last one)
 void	rx(t_stack **stack)
 {
-	t_stack	*first;
-	t_stack	*last;
+	t_stack	*temp;
 
-	if (*stack && (*stack)->next)
-	{
-		first = *stack;
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
-		last = *stack;
-		while (last->next)
-			last = last->next;
-		last->next = first;
-		first->prev = last;
-		first->next = NULL;
-	}
+	if (!*stack || !(*stack)->next)
+		return ;
+	temp = *stack;
+	*stack = lstlast_ps(*stack);
+	(*stack)->next = temp;
+	*stack = temp->next;
+	temp->next = NULL;
 }
 
 // Reverse rotate stack (last element becomes the first one)
 void	rrx(t_stack **stack)
 {
-	t_stack	*last;
-	t_stack	*second_last;
+	int		temp;
+	t_stack	*temp2;
 
-	if (*stack && (*stack)->next)
+	if (!*stack || !(*stack)->next)
+		return ;
+	temp = 0;
+	temp2 = *stack;
+	while ((*stack)->next)
 	{
-		last = *stack;
-		while (last->next)
-			last = last->next;
-		second_last = last->prev;
-		second_last->next = NULL;
-		last->prev = NULL;
-		last->next = *stack;
-		(*stack)->prev = last;
-		*stack = last;
+		*stack = (*stack)->next;
+		temp++;
 	}
+	(*stack)->next = temp2;
+	while (temp > 1)
+	{
+		temp2 = temp2->next;
+		temp--;
+	}
+	temp2->next = NULL;
 }

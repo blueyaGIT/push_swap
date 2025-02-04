@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:08:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 15:47:38 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:12:30 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	atoi_ps(const char *str)
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			exit(EXIT_FAILURE);
+			exit(1);
 		num = num * 10 + (*str - 48);
 		str++;
 	}
 	if ((sign * num) > 2147483647 || (sign * num) < -2147483648)
-		exit(EXIT_FAILURE);
+		exit(1);
 	return (sign * num);
 }
 
@@ -78,7 +78,7 @@ t_stack	*new_stack(int content, int idx)
 
 	new = malloc(sizeof (t_stack));
 	if (!new)
-		exit(EXIT_FAILURE);
+		exit(1);
 	new->nbr = content;
 	new->idx = idx;
 	new->next = NULL;
