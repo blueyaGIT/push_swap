@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:13:37 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:52:12 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 	if (!a || duplicate_check(a))
 	{
 		free_stack(a);
-		exit(1);
+		error_msg();
 	}
 	printf("Pre-Sort\n");
 	print_stack(a);

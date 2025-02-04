@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:14:25 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:12:30 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:52:12 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_push(t_stack **stack, long value, int idx)
 	if (!new_node)
 	{
 		ft_printf("Memory allocation failed!\n");
-		exit(1);
+		error_msg();
 	}
 	new_node->nbr = value;
 	new_node->idx = idx;

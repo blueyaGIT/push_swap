@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:12:40 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/03 19:05:28 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:52:16 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,10 @@ void	free_splitted(char **splitted)
 		free(node);
 	}
 	*splitted = NULL;
+}
+
+void	error_msg(void)
+{
+	ft_printf("Error\n");
+	exit(1);
 }
