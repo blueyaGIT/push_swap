@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:16:27 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/05 16:32:50 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 17:25:49 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ t_stack	*sort_b(t_stack **a)
 	t_stack	*b;
 
 	b = NULL;
-	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
+	if (lstsize_ps(*a) >= 3 && !is_sorted(*a))
 		pb(a, &b);
-	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
+	if (lstsize_ps(*a) >= 3 && !is_sorted(*a))
 		pb(a, &b);
-	if (lstsize_ps(*a) > 3 && !is_sorted(*a))
+	if (lstsize_ps(*a) >= 3 && !is_sorted(*a))
 		sort_b_small(a, &b);
 	if (!is_sorted(*a))
 		sort_three(a);
@@ -41,12 +41,17 @@ void	sort_b_small(t_stack **a, t_stack **b)
 	int		temp;
 	t_stack	*stack;
 
-	while (lstsize_ps(*a) > 3 && !is_sorted(*a))
+	while (lstsize_ps(*a) > 3)
 	{
 		stack = *a;
 		temp = ab_rotate(*a, *b);
 		while (temp >= 0)
 		{
+			if (!stack)
+			{
+				pb(a, b);
+				break ;
+			}
 			if (temp == calc_ra_rb(*a, *b, stack->nbr))
 				temp = do_ra_rb(a, b, stack->nbr, 1);
 			else if (temp == calc_rra_rrb(*a, *b, stack->nbr))

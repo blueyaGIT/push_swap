@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:15:57 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/05 15:27:31 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 17:27:05 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,10 @@ void	do_sort(t_stack **a)
 // Sorts a stack with three elements
 void	sort_three(t_stack **a)
 {
-	if (min_ps(*a) == (*a)->nbr)
-	{
-		rra(a);
-		sa(a);
-	}
-	else if (max_ps(*a) == (*a)->nbr)
-	{
+	if ((*a)->nbr == max_ps(*a))
 		ra(a);
-		if (!is_sorted(*a))
-			sa(a);
-	}
-	else
-	{
-		if (find_idx(*a, max_ps(*a)) == 1)
-			rra(a);
-		else
-			sa(a);
-	}
+	else if ((*a)->next->nbr == max_ps(*a))
+		rra(a);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
 }
