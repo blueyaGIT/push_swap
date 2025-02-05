@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:15:57 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 23:23:03 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 15:27:31 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	find_idx(t_stack *a, int num)
 	int		count;
 
 	count = 0;
-	while (a->nbr != num)
+	while (a->next && a->nbr != num)
 	{
 		count++;
 		a = a->next;

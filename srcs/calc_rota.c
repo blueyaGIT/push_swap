@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:41:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 23:59:43 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 15:31:48 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 int	calc_ra_rb(t_stack *a, t_stack *b, int num)
 {
 	int	temp;
+	int	idx;
 
 	temp = find_spot_b(b, num);
-	if (temp < find_idx(a, num))
-		temp = find_idx(a, num);
+	idx = find_idx(a, num);
+	if (temp < idx)
+		temp = idx;
 	return (temp);
 }
 
 int	calc_ra_rrb(t_stack *a, t_stack *b, int num)
 {
 	int	temp;
+	int	spot;
 
 	temp = 0;
-	if (find_spot_b(b, num))
-		temp = lstsize_ps(b) - find_spot_b(b, num);
+	spot = find_spot_b(b, num);
+	if (spot)
+		temp = lstsize_ps(b) - spot;
 	temp = find_idx(a, num) + temp;
 	return (temp);
 }
@@ -36,10 +40,12 @@ int	calc_ra_rrb(t_stack *a, t_stack *b, int num)
 int	calc_rra_rb(t_stack *a, t_stack *b, int num)
 {
 	int	temp;
+	int	idx;
 
 	temp = 0;
-	if (find_idx(a, num))
-		temp = lstsize_ps(a) - find_idx(a, num);
+	idx = find_idx(a, num);
+	if (idx)
+		temp = lstsize_ps(a) - idx;
 	temp = find_spot_b(b, num) + temp;
 	return (temp);
 }
@@ -47,11 +53,15 @@ int	calc_rra_rb(t_stack *a, t_stack *b, int num)
 int	calc_rra_rrb(t_stack *a, t_stack *b, int num)
 {
 	int	temp;
+	int	spot;
+	int	idx;
 
 	temp = 0;
-	if (find_spot_b(b, num))
-		temp = lstsize_ps(b) - find_spot_b(b, num);
-	if ((temp < (lstsize_ps(a) - find_idx(a, num))) && find_idx(a, num))
-		temp = lstsize_ps(a) - find_idx(a, num);
+	spot = find_spot_b(b, num);
+	idx = find_idx(a, num);
+	if (spot)
+		temp = lstsize_ps(b) - spot;
+	if ((temp < (lstsize_ps(a) - idx)) && idx)
+		temp = lstsize_ps(a) - idx;
 	return (temp);
 }
