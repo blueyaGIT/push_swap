@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:16:27 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/05 15:24:31 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:32:50 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,25 @@ t_stack	*sort_b(t_stack **a)
  */
 void	sort_b_small(t_stack **a, t_stack **b)
 {
-	int		rotdir;
-	t_stack	*temp;
+	int		temp;
+	t_stack	*stack;
 
 	while (lstsize_ps(*a) > 3 && !is_sorted(*a))
 	{
-		temp = *a;
-		rotdir = ab_rotate(*a, *b);
-		while (rotdir >= 0 && temp)
+		stack = *a;
+		temp = ab_rotate(*a, *b);
+		while (temp >= 0)
 		{
-			if (rotdir == calc_ra_rb(*a, *b, temp->nbr))
-				rotdir = do_ra_rb(a, b, temp->nbr, a_to_b);
-			else if (rotdir == calc_rra_rrb(*a, *b, temp->nbr))
-				rotdir = do_rra_rrb(a, b, temp->nbr, a_to_b);
-			else if (rotdir == calc_ra_rrb(*a, *b, temp->nbr))
-				rotdir = do_ra_rrb(a, b, temp->nbr, a_to_b);
-			else if (rotdir == calc_rra_rb(*a, *b, temp->nbr))
-				rotdir = do_rra_rb(a, b, temp->nbr, a_to_b);
+			if (temp == calc_ra_rb(*a, *b, stack->nbr))
+				temp = do_ra_rb(a, b, stack->nbr, 1);
+			else if (temp == calc_rra_rrb(*a, *b, stack->nbr))
+				temp = do_rra_rrb(a, b, stack->nbr, 1);
+			else if (temp == calc_ra_rrb(*a, *b, stack->nbr))
+				temp = do_ra_rrb(a, b, stack->nbr, 1);
+			else if (temp == calc_rra_rb(*a, *b, stack->nbr))
+				temp = do_rra_rb(a, b, stack->nbr, 1);
 			else
-				temp = temp->next;
+				stack = stack->next;
 		}
 	}
 }

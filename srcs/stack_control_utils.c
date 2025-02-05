@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:34:42 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:43:31 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:34:29 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,22 @@ void	rx(t_stack **stack)
 void	rrx(t_stack **stack)
 {
 	int		temp;
-	t_stack	*temp2;
+	t_stack	*s2;
 
 	if (!*stack || !(*stack)->next)
 		return ;
 	temp = 0;
-	temp2 = *stack;
+	s2 = *stack;
 	while ((*stack)->next)
 	{
 		*stack = (*stack)->next;
 		temp++;
 	}
-	(*stack)->next = temp2;
+	(*stack)->next = s2;
 	while (temp > 1)
 	{
-		temp2 = temp2->next;
+		s2 = s2->next;
 		temp--;
 	}
-	temp2->next = NULL;
+	s2->next = NULL;
 }

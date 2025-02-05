@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:19:50 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 23:19:32 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/05 15:57:46 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 
-	if (ac < 2)
-		return (ft_printf("Usage: %s <numbers_to_sort>\n", av[0]), 1);
 	a = fill_stack(ac, av);
 	if (!a || duplicate_check(a))
 	{
