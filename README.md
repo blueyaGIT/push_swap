@@ -76,3 +76,11 @@ The following operations are used to manipulate the stacks:
 - The stack is sorted using an efficient combination of operations.
 
 For more details, refer to the project documentation or the `42` subject PDF.
+
+## 🚀 Next Project
+
+<a href="https://github.com/blueyaGIT/minishell"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=BF94E4&width=435&lines=MiniShell"></a>
+
+## ⏳ Previous Project
+
+<a href="https://github.com/blueyaGIT/so_long"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=BF94E4&width=435&lines=so_long"></a>
