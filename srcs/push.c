@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:32:23 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/05 16:23:27 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:45:55 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,29 @@ int	do_ra_rb(t_stack **a, t_stack **b, int num, int direction)
 }
 
 /**
- * rotates `a` forwards and `b` backwards
+ * rotates both `a` and `b` backwards
  * ends with push
  */
-int	do_ra_rrb(t_stack **a, t_stack **b, int num, int direction)
+int	do_rra_rrb(t_stack **a, t_stack **b, int num, int direction)
 {
 	if (direction == 1)
 	{
+		while ((*a)->nbr != num && find_spot_b(*b, num) > 0)
+			rrr(a, b);
 		while ((*a)->nbr != num)
-			ra(a);
+			rra(a);
 		while (find_spot_b(*b, num) > 0)
 			rrb(b);
 		pb(a, b);
 	}
 	else
 	{
-		while (find_spot_a(*a, num) > 0)
-			ra(a);
+		while ((*b)->nbr != num && find_spot_a(*a, num) > 0)
+			rrr(a, b);
 		while ((*b)->nbr != num)
 			rrb(b);
+		while (find_spot_a(*a, num) > 0)
+			rra(a);
 		pa(a, b);
 	}
 	return (-1);
@@ -92,29 +96,25 @@ int	do_rra_rb(t_stack **a, t_stack **b, int num, int direction)
 }
 
 /**
- * rotates both `a` and `b` backwards
+ * rotates `a` forwards and `b` backwards
  * ends with push
  */
-int	do_rra_rrb(t_stack **a, t_stack **b, int num, int direction)
+int	do_ra_rrb(t_stack **a, t_stack **b, int num, int direction)
 {
 	if (direction == 1)
 	{
-		while ((*a)->nbr != num && find_spot_b(*b, num) > 0)
-			rrr(a, b);
 		while ((*a)->nbr != num)
-			rra(a);
+			ra(a);
 		while (find_spot_b(*b, num) > 0)
 			rrb(b);
 		pb(a, b);
 	}
 	else
 	{
-		while ((*b)->nbr != num && find_spot_a(*a, num) > 0)
-			rrr(a, b);
+		while (find_spot_a(*a, num) > 0)
+			ra(a);
 		while ((*b)->nbr != num)
 			rrb(b);
-		while (find_spot_a(*a, num) > 0)
-			rra(a);
 		pa(a, b);
 	}
 	return (-1);

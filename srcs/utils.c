@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:25:04 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 23:33:11 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:20:01 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,16 @@ int	is_sorted(t_stack *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+t_stack	*new_stack(int content)
+{
+	t_stack	*new;
+
+	new = malloc(sizeof (t_stack));
+	if (!new)
+		error_msg();
+	new->nbr = content;
+	new->next = NULL;
+	return (new);
 }

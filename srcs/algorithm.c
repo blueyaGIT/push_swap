@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 18:08:51 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 23:20:25 by dalbano          ###   ########.fr       */
+/*   Created: 2025/02/02 17:37:26 by dalbano           #+#    #+#             */
+/*   Updated: 2025/02/06 16:22:07 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	stack_revadd(t_stack **stack, t_stack *new)
-{
-	if (!stack)
-		return ;
-	if (!*stack)
-		*stack = new;
-	else
-		(lstlast_ps(*stack))->next = new;
-}
 
 int	atoi_ps(const char *str)
 {
@@ -51,36 +41,47 @@ int	atoi_ps(const char *str)
 	return (sign * num);
 }
 
-t_stack	*lstlast_ps(t_stack *stack)
+t_stack	*fill_help(char **av)
 {
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
+	t_stack	*a;
+	char	**splitted;
+	int		temp;
+	int		temp2;
 
-int	lstsize_ps(t_stack *stack)
-{
-	size_t	temp;
-
+	a = NULL;
 	temp = 0;
-	while (stack)
+	splitted = ft_split(av[1], 32);
+	while (splitted[temp])
 	{
-		stack = stack->next;
+		temp2 = atoi_ps(splitted[temp]);
+		stack_revadd(&a, new_stack(temp2));
 		temp++;
 	}
-	return (temp);
+	free_splitted(splitted);
+	free(splitted);
+	return (a);
 }
 
-t_stack	*new_stack(int content)
+t_stack	*fill_stack(int ac, char **av)
 {
-	t_stack	*new;
+	t_stack	*a;
+	int		temp;
+	int		temp2;
 
-	new = malloc(sizeof (t_stack));
-	if (!new)
+	temp = 1;
+	a = NULL;
+	if (ac < 2)
 		error_msg();
-	new->nbr = content;
-	new->next = NULL;
-	return (new);
+	if (ac == 2)
+		a = fill_help(av);
+	else
+	{
+		while (temp < ac)
+		{
+			temp2 = atoi_ps(av[temp]);
+			stack_revadd(&a, new_stack(temp2));
+			temp++;
+		}
+	}
+	return (a);
 }

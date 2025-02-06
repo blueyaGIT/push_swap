@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:12:40 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/04 17:52:16 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:13:24 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	min_ps(t_stack *a)
+void	stack_revadd(t_stack **stack, t_stack *new)
 {
-	int		temp;
-
-	temp = a->nbr;
-	while (a)
-	{
-		if (a->nbr < temp)
-			temp = a->nbr;
-		a = a->next;
-	}
-	return (temp);
+	if (!stack)
+		return ;
+	if (!*stack)
+		*stack = new;
+	else
+		(lstlast_ps(*stack))->next = new;
 }
 
-int	max_ps(t_stack *a)
+void	error_msg(void)
 {
-	int		temp;
-
-	temp = a->nbr;
-	while (a)
-	{
-		if (a->nbr > temp)
-			temp = a->nbr;
-		a = a->next;
-	}
-	return (temp);
+	write (2, "Error\n", 6);
+	exit(1);
 }
 
 void	free_splitted(char **splitted)
@@ -55,8 +43,17 @@ void	free_splitted(char **splitted)
 	*splitted = NULL;
 }
 
-void	error_msg(void)
+void	free_stack(t_stack **stack)
 {
-	ft_printf("Error\n");
-	exit(1);
+	t_stack	*temp;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		(*stack)->nbr = 0;
+		free(*stack);
+		*stack = temp;
+	}
 }

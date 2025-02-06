@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/05 16:44:40 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:24:21 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <unistd.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdbool.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -61,7 +61,6 @@ void				free_stack(t_stack **stack);
 void				free_splitted(char **splitted);
 int					duplicate_check(t_stack *a);
 void				error_msg(void);
-char				**split_ps(char const *s, char c);
 
 // Algorithm functions
 void				do_sort(t_stack **a);
@@ -83,7 +82,7 @@ int					calc_ra_rb(t_stack *a, t_stack *b, int num);
 int					calc_ra_rrb(t_stack *a, t_stack *b, int num);
 int					calc_rra_rb(t_stack *a, t_stack *b, int num);
 int					calc_rra_rrb(t_stack *a, t_stack *b, int num);
-int					calc_ra_rb_a(t_stack *a, t_stack *b, long num);
+int					calc_ra_rb_a(t_stack *a, t_stack *b, int num);
 int					calc_ra_rrb_a(t_stack *a, t_stack *b, int num);
 int					calc_rra_rb_a(t_stack *a, t_stack *b, int num);
 int					calc_rra_rrb_a(t_stack *a, t_stack *b, int num);
@@ -92,5 +91,4 @@ int					do_ra_rrb(t_stack **a, t_stack **b, int num, int direction);
 int					do_rra_rb(t_stack **a, t_stack **b, int num, int direction);
 int					do_rra_rrb(t_stack **a, t_stack **b, int num,
 						int direction);
-
 #endif /* PUSH_SWAP_H */

@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 OBJ_DIR := ./obj
 DEP_DIR := $(OBJ_DIR)/.deps
 INC_DIRS := ./includes
@@ -25,25 +25,23 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS =	calc_rota.c \
-		calc_rotb.c \
+SRCS =	algorithm.c \
+		algorithm_utils.c \
+		calc_rot_ab.c \
+		calc_rot_ba.c \
 		dup_check.c \
 		find_rotation.c \
 		main.c \
 		push.c \
-		sort_a.c \
-		sort_b.c \
-		sort_utils.c \
-		split_args.c \
+		sort.c \
+		sort_three.c \
 		spot.c \
 		stack_control.c \
 		stack_control2.c \
 		stack_control3.c \
 		stack_control_utils.c \
-		stack_utils.c \
 		utils.c \
-		utils2.c \
-		utils3.c
+		utils2.c
 
 # Object files
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
