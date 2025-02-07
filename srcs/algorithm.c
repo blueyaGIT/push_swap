@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:37:26 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/06 16:22:07 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/02/07 13:24:29 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_stack	*fill_stack(int ac, char **av)
 	temp = 1;
 	a = NULL;
 	if (ac < 2)
-		error_msg();
+		exit(1);
 	if (ac == 2)
 		a = fill_help(av);
 	else
