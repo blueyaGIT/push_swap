@@ -124,5 +124,12 @@ fclean: clean
 # Rebuild everything
 re: fclean all
 
+# Rebuild everything faster
+fastre: remove-submodules
+	@rm -rf $(OBJ_DIR)
+	@rm -rf $(LIBFT_DIR)
+	@rm -rf $(NAME)
+	@make
+
 # Phony targets
-.PHONY: all clean fclean re libft init-submodules remove-submodules fix
+.PHONY: all clean fclean re libft init-submodules remove-submodules fastre
