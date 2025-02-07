@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  Score: <i>WIP/100</i><br>
+  Score: <i>98/100</i><br>
   Finished: <i>06.02.2025</i><br>
 </p>
 
