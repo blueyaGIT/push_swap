@@ -50,7 +50,7 @@ TOTAL_SRCS = $(words $(SRCS))
 CURRENT = 0
 
 # Default rule to compile all
-all: $(NAME)
+all: init-submodules $(LIBFT_LIB) $(NAME)
 
 -include $(OBJS:.o=.d)
 
