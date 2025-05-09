@@ -1,13 +1,17 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
+DEPFLAGS = -MMD -MP
+# SYSLIBFLAGS = -lreadline
 OBJ_DIR := ./obj
 DEP_DIR := $(OBJ_DIR)/.deps
 INC_DIRS := ./includes
-SRC_DIRS := ./srcs
+# TMP_DIR := tmp
+SRC_DIRS := $(shell find ./srcs -type d)
 vpath %.c $(SRC_DIRS)
 vpath %.h $(INC_DIRS)
 vpath %.d $(DEP_DIR)
+CFLAGS += -I$(INC_DIR)
 
 LIBFT_DIR = $(INC_DIRS)/libft
 LIBFT = libft.a
@@ -50,7 +54,7 @@ TOTAL_SRCS = $(words $(SRCS))
 CURRENT = 0
 
 # Default rule to compile all
-all: init-submodules $(LIBFT_LIB) $(NAME)
+all: init-submodules $(LIBFT_LIB) relink
 
 -include $(OBJS:.o=.d)
 
@@ -58,8 +62,8 @@ $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(eval CURRENT := $(shell echo $$(($(CURRENT) + 1))))
 	@$(eval PERCENT := $(shell echo $$(($(CURRENT) * 100 / $(TOTAL_SRCS)))))
-	@printf "$(CLEAR_LINE)$(YELLOW)🚧 Compiling $(PERCENT)%% [$(CURRENT)/$(TOTAL_SRCS)] $(CYAN)$<$(NC) 🚧"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(CLEAR_LINE)$(YELLOW)🚧 Compiling $(PERCENT)%% [$(CURRENT)/$(TOTAL_SRCS)] $(CYAN)$<$(NC) 🚧 "
+	@$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 
 # Initialize submodules
 init-submodules: init-libft
@@ -96,16 +100,20 @@ $(LIBFT_LIB): init-libft
 	fi
 
 # Rule to compile program
-$(NAME): $(OBJS)
+relink: $(OBJS)
 	@newer=0; \
-	for obj in $(OBJS); do \
-		if [ $$obj -nt $(NAME) ]; then \
-			newer=1; \
-			break; \
-		fi \
-	done; \
+	if [ ! -f "$(NAME)" ]; then \
+		newer=1; \
+	else \
+		for obj in $(OBJS); do \
+			if [ $$obj -nt $(NAME) ]; then \
+				newer=1; \
+				break; \
+			fi; \
+		done; \
+	fi; \
 	if [ $$newer -eq 1 ]; then \
-		echo "$(CLEAR_LINE)$(YELLOW)🚧 Building PUSH_SWAP 🚧$(NC)"; \
+		echo "$(CLEAR_LINE)$(YELLOW)🚧 Building push_swap 🚧$(NC)"; \
 		$(CC) -o $(NAME) $(OBJS) $(LIBFTFLAGS); \
 		echo "$(CLEAR_LINE)$(GREEN)✅ Done Compiling ✅$(NC)"; \
 	else \
@@ -142,5 +150,13 @@ fastre: remove-submodules
 	@rm -rf $(NAME)
 	@make
 
+norm:
+	@norminette $(SRC_DIRS) $(INC_DIR) $(LIBFT_DIR) | grep "Error" || printf "$(GREEN)✅ Norme OK ✅ $(NC)\n"
+
+debug: CFLAGS += -g
+debug: CFLAGS += -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment
+debug: CFLAGS += -DDEBUG=1
+debug: clean all
+
 # Phony targets
-.PHONY: all clean fclean re libft init-submodules remove-submodules fastre
+.PHONY: all clean fclean re init-submodules remove-submodules fastre norm debug relink
