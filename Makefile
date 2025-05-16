@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 DEPFLAGS = -MMD -MP
 # SYSLIBFLAGS = -lreadline
 OBJ_DIR := ./obj
@@ -11,7 +11,7 @@ SRC_DIRS := $(shell find ./srcs -type d)
 vpath %.c $(SRC_DIRS)
 vpath %.h $(INC_DIRS)
 vpath %.d $(DEP_DIR)
-CFLAGS += -I$(INC_DIR)
+CFLAGS += -I$(INC_DIRS)
 
 LIBFT_DIR = $(INC_DIRS)/libft
 LIBFT = libft.a
