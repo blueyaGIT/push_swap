@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:03:52 by dalbano           #+#    #+#             */
-/*   Updated: 2025/02/06 16:24:21 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:23:02 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,31 +64,10 @@ void				error_msg(void);
 
 // Algorithm functions
 void				do_sort(t_stack **a);
-void				sort_three(t_stack **a);
-t_stack				**sort_a(t_stack **a, t_stack **b);
-t_stack				*sort_b(t_stack **a);
-void				sort_b_small(t_stack **a, t_stack **b);
-int					find_idx(t_stack *a, int nbr);
-int					find_spot_a(t_stack *a, int num);
-int					find_spot_b(t_stack *b, int num);
-int					ba_rotate(t_stack *a, t_stack *b);
-int					ab_rotate(t_stack *a, t_stack *b);
 
 // Algorithm helper funcs
 t_stack				*fill_stack(int ac, char **av);
 t_stack				*fill_help(char **av);
 int					atoi_ps(const char *str);
-int					calc_ra_rb(t_stack *a, t_stack *b, int num);
-int					calc_ra_rrb(t_stack *a, t_stack *b, int num);
-int					calc_rra_rb(t_stack *a, t_stack *b, int num);
-int					calc_rra_rrb(t_stack *a, t_stack *b, int num);
-int					calc_ra_rb_a(t_stack *a, t_stack *b, int num);
-int					calc_ra_rrb_a(t_stack *a, t_stack *b, int num);
-int					calc_rra_rb_a(t_stack *a, t_stack *b, int num);
-int					calc_rra_rrb_a(t_stack *a, t_stack *b, int num);
-int					do_ra_rb(t_stack **a, t_stack **b, int num, int direction);
-int					do_ra_rrb(t_stack **a, t_stack **b, int num, int direction);
-int					do_rra_rb(t_stack **a, t_stack **b, int num, int direction);
-int					do_rra_rrb(t_stack **a, t_stack **b, int num,
-						int direction);
+
 #endif /* PUSH_SWAP_H */

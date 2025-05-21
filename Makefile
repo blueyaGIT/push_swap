@@ -29,21 +29,15 @@ NC = \033[0m
 CLEAR_LINE = \033[2K\r
 
 # Source files
-SRCS =	algorithm.c \
-		algorithm_utils.c \
-		calc_rot_ab.c \
-		calc_rot_ba.c \
+SRCS =	algorithm_utils.c \
+		algorithm.c \
 		dup_check.c \
-		find_rotation.c \
 		main.c \
-		push.c \
 		sort.c \
-		sort_three.c \
-		spot.c \
+		stack_control_utils.c \
 		stack_control.c \
 		stack_control2.c \
 		stack_control3.c \
-		stack_control_utils.c \
 		utils.c \
 		utils2.c
 
