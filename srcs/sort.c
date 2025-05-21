@@ -6,7 +6,7 @@
 /*   By: dalbano <dalbano@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:15:57 by dalbano           #+#    #+#             */
-/*   Updated: 2025/05/21 14:08:59 by dalbano          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:37:13 by dalbano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	do_sort(t_stack **a)
 		else
 			curr = curr->next;
 	}
+	free_stack(&b);
 }
