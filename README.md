@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/blueyaGIT/blueyaGIT/blob/master/42_badges/push_swapn.png?raw=true" alt="push_swap"/>
+  <img src="https://github.com/blueyaGIT/blueyaGIT/blob/master/42_badges/push_swape.png?raw=true" alt="push_swap"/>
 </p>
 
 <p align="center">
